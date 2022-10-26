@@ -43,7 +43,7 @@ export async function init() {
     let __p = await web3Modal.connect();
     // _provider = await web3Modal.connect();// if (web3Modal.cachedProvider) {
     // _provider = new Web3Provider(window.ethereum, "any");
-    _provider = new Web3Provider(__p);
+    _provider = new Web3Provider(__p, "any");
     __p.on("chainChanged", (oldNetwork) => {
       if (oldNetwork) {
         setTimeout(() => {
