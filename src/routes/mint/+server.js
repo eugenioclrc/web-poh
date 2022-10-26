@@ -3,7 +3,7 @@ import ethers from 'ethers';
 import pinataSDK from '@pinata/sdk';
 
 import { env } from '$env/dynamic/private';
-import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_PROOFOFHACKERNFT } from '$env/static/public';
+import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_PROOFOFHACKERNFT, PUBLIC_TESTNET_RPC } from '$env/static/public';
 
 
 const abiManager = [
@@ -29,17 +29,18 @@ export async function GET({ url }) {
   }
  
   // todo check player has end challenge
-  const provider = new ethers.providers.JsonRpcProvider(env.PUBLIC_TESTNET_RPC);
+  const provider = new ethers.providers.JsonRpcProvider(PUBLIC_TESTNET_RPC);
+  
   const signer = new ethers.Wallet(env.DEPLOYMENT_MINTERPK, provider);
 
-  const factory = new ethers.Contract(PUBLIC_CHALLENGE_MANAGER, abiManager, signer);
+  const factory = new ethers.Contract(PUBLIC_CHALLENGE_MANAGER, abiManager, provider);
   const solved = await factory.userChallengeBreak(player, challenge);
   if (!solved) {
     throw error(400, 'not solved');
   }
 
   if (!challengeData[challenge]) {
-    const factoryChallenge = new ethers.Contract(challenge, challengeFactoryAbi, signer);
+    const factoryChallenge = new ethers.Contract(challenge, challengeFactoryAbi, provider);
     const NFTmetadata = {};
     NFTmetadata.name = await factoryChallenge.name();
     NFTmetadata.description = await factoryChallenge.description();
