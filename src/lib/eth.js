@@ -32,7 +32,7 @@ export async function init() {
     },
   };
   
-  web3Modal = web3Modal || new window.Web3Modal.default({
+  web3Modal = web3Modal || new Web3Modal.default({
     cacheProvider: true, // optional
     providerOptions, // required
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
@@ -100,7 +100,7 @@ export async function init() {
 export async function login() {
   await init();
   try {
-    await window.web3Modal.connect();
+    await web3Modal.connect();
     // await window.ethereum.enable();
   } catch(err) {
   }
