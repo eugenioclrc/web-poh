@@ -104,8 +104,8 @@ export async function login() {
   await init();
 }
 
-export async function changeNetwork() {
-  const chainId = `0x${(5).toString(16)}`;
+export async function changeNetwork(_chainId) {
+  const chainId = `0x${(Number(_chainId)).toString(16)}`;
     try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
@@ -113,7 +113,10 @@ export async function changeNetwork() {
         });
       } catch (err) {
           // This error code indicates that the chain has not been added to MetaMask
-        if (err.code === 4902) {
+        if (err.code !== 4902) {
+          return;
+        }
+        if(Number(_chainId) ==5) {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [

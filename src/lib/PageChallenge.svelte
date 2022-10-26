@@ -1,6 +1,6 @@
 <!-- Foo.svelte -->
 <script lang="ts">
-import {chainId, wallet, login, signer} from '$lib/eth';
+import {chainId, wallet, login, signer, changeNetwork} from '$lib/eth';
 import { Contract } from "@ethersproject/contracts";
 import getContract from '$lib/contractChallengeFactory';
 import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
@@ -178,7 +178,7 @@ $: if($wallet && $chainId == PUBLIC_TESTNET_CHAINID) {
       {#if !$wallet}
         <button class="btn btn-primary" on:click={login}>Connect wallet</button>
       {:else if $chainId != Number(PUBLIC_TESTNET_CHAINID)}
-        <button class="btn btn-primary">Connect to goerli</button>
+        <button class="btn btn-primary" on:click={() => {changeNetwork(PUBLIC_TESTNET_CHAINID)}}>Connect to goerli</button>
       {:else}
         {#if challenge.instances.length == 0}
           <button class="btn btn-primary" class:cursor-wait={deploying}  disabled={deploying} on:click={deploy}>Deploy</button>
