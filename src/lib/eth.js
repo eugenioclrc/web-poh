@@ -23,13 +23,13 @@ let web3Modal;
 export async function init() {
   
   const providerOptions = {
-    /*walletconnect: {
+    walletconnect: {
       package: window.WalletConnectProvider.default,
       options: {
         // Mikko's test key - don't copy as your mileage may vary
         rpc : {  80001: "https://matic-mumbai.chainstacklabs.com/", 137: "https://rpc.ankr.com/polygon" },
       }
-    },*/
+    },
   };
   
   web3Modal = web3Modal || new window.Web3Modal.default({
