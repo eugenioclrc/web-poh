@@ -1,10 +1,12 @@
 import { get } from "svelte/store";
 import { Contract } from "@ethersproject/contracts";
 import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_TESTNET_CHAINID } from '$env/static/public';
+import { Contract as MContract } from 'ethers-multicall';
 
 import { chainId, signer, wallet } from "./eth";
 
 let contract: any;
+let mcontract: any;
 
 const abiFactory = [
     "function deployChallenge(address) external",
@@ -16,22 +18,6 @@ const abiFactory = [
     "event ChallengeBreak(address indexed challenge, address indexed user, uint256 breakTimes)"
 ];
 
-/*
-async function eventChallengeBreak(challenge, player, times) {
-  const $wallet = await get(wallet);
-  if (player !== $wallet) {
-    return;
-  }
-  const event = new CustomEvent('challengeBreak', {
-    detail: [challenge, Number(times)].join(','),
-    bubbles: true,
-    cancelable: true,
-    composed: true, // makes the event jump shadow DOM boundary
-  });
-  document.dispatchEvent(event);
-}
-*/
-
 export default async function getContract() {
   const $signer = await get(signer);
   const $chainId = await get(chainId);
@@ -40,16 +26,20 @@ export default async function getContract() {
     throw new Error(`No contracts address for ${$chainId}`);
   }
   if (contract) {
-    return contract.connect($signer);
+    return {
+      contract: contract.connect($signer),
+      mcontract
+    };
   }
 
   if (!PUBLIC_CHALLENGE_MANAGER) {
     throw new Error(`No contracts address for ${$chainId}`);
   }
 
-  // contract.on("ChallengeBreak", eventChallengeBreak);
-
-
   contract = new Contract(PUBLIC_CHALLENGE_MANAGER, abiFactory);
-  return contract.connect($signer);
+  mcontract = new MContract(PUBLIC_CHALLENGE_MANAGER, abiFactory);
+  return {
+    contract: contract.connect($signer),
+    mcontract
+  };
 }

@@ -1,10 +1,10 @@
 <!-- Foo.svelte -->
 <script lang="ts">
-import {chainId, wallet, login, signer, changeNetwork} from '$lib/eth';
-import { Contract } from "@ethersproject/contracts";
+import {chainId, wallet, login, signer, provider, changeNetwork} from '$lib/eth';
 import getContract from '$lib/contractChallengeFactory';
 import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
 import { onMount } from 'svelte';
+import { Contract as MContract, Provider as MProvider, setMulticallAddress } from 'ethers-multicall';
 
 import confetti from 'canvas-confetti';
 
@@ -30,22 +30,46 @@ onMount(() => {
   twitterLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("I have just solve Challenge '"+nameChallenge+"' on "+String(window.location));
 });
 
+const multicallAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+let ethcallProvider;
+
 async function init() {
-  challengeManager = await getContract();
-  challenge.instances = await challengeManager.getChallengesInstances($wallet, challengeAddress);
-  challenge.complete = await challengeManager.checkChallenge($wallet, challengeAddress);
-  challenge.break = await challengeManager.userChallengeBreak($wallet, challengeAddress);
-  challenge.playersPass = Number(await challengeManager.challengeBreaks(challengeAddress));
+  if (!ethcallProvider) {
+    ethcallProvider = new MProvider($provider);
+    setMulticallAddress(31337, multicallAddress);
+    await ethcallProvider.init();
+  }
+  
+  
+  const managerContracts = await getContract();
+  const managerMcall = managerContracts.mcontract;
+  challengeManager = managerContracts.contract;
   const abiFactory = [
     "function deployValue() external view returns (uint256)",
     // @notice return name of the contract challenges
     "function contractNames() external view returns (string[] memory)"
   ];
-  let challengeContract = new Contract(challengeAddress, abiFactory);
-  challengeContract = challengeContract.connect($signer);
-  challenge.value = await challengeContract.deployValue();
-  challenge.instancesNames = await challengeContract.contractNames();
-  console.log(challenge)
+  let challengeContract = new MContract(challengeAddress, abiFactory);
+  
+
+  [
+    challenge.value,
+    challenge.instancesNames,
+    challenge.instances,
+    challenge.complete,
+    challenge.break,
+    challenge.playersPass
+  ] = await ethcallProvider.all([
+    challengeContract.deployValue(),
+    challengeContract.contractNames(),
+    managerMcall.getChallengesInstances($wallet, challengeAddress),
+    managerMcall.checkChallenge($wallet, challengeAddress),
+    managerMcall.userChallengeBreak($wallet, challengeAddress),
+    managerMcall.challengeBreaks(challengeAddress)
+  ]);
+
+  challenge.playersPass = Number(challenge.playersPass);
+console.log(challenge);
   challenge = {...challenge};
 }
 

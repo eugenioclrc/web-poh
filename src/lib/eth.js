@@ -116,7 +116,7 @@ export async function changeNetwork(_chainId) {
         if (err.code !== 4902) {
           return;
         }
-        if(Number(_chainId) ==5) {
+        if(Number(_chainId) == 5) {
           await window.ethereum.request({
             method: 'wallet_addEthereumChain',
             params: [
