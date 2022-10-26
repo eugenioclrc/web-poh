@@ -21,15 +21,15 @@ let _provider;
 let web3Modal;
 
 export async function init() {
-  /*
+  
   const providerOptions = {
-    walletconnect: {
+    /*walletconnect: {
       package: window.WalletConnectProvider.default,
       options: {
         // Mikko's test key - don't copy as your mileage may vary
         rpc : {  80001: "https://matic-mumbai.chainstacklabs.com/", 137: "https://rpc.ankr.com/polygon" },
       }
-    },
+    },*/
   };
   
   web3Modal = web3Modal || new window.Web3Modal.default({
@@ -37,11 +37,13 @@ export async function init() {
     providerOptions, // required
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
   });
-  */
+  
   // provider = await web3Modal.connect();
-  // if (web3Modal.cachedProvider) {
-    _provider = new Web3Provider(window.ethereum, "any");
-    const __p = _provider;
+  if (web3Modal.cachedProvider) {
+    let __p = await web3Modal.connect();
+    // _provider = await web3Modal.connect();// if (web3Modal.cachedProvider) {
+    // _provider = new Web3Provider(window.ethereum, "any");
+    _provider = new Web3Provider(__p);
     __p.on("chainChanged", (oldNetwork) => {
       if (oldNetwork) {
         setTimeout(() => {
@@ -80,24 +82,25 @@ export async function init() {
     });
     
     provider.set(_provider);
-  const _networkDetails = await _provider.getNetwork();
-  networkDetails.set(_networkDetails);
-  chainId.set(_networkDetails.chainId);
-  provider.set(_provider);
+    const _networkDetails = await _provider.getNetwork();
+    networkDetails.set(_networkDetails);
+    chainId.set(_networkDetails.chainId);
+    provider.set(_provider);
 
-  wallet.set(_wallet);
-  signer.set(_signer);
+    wallet.set(_wallet);
+    signer.set(_signer);
 
 
-  if (_wallet) {
-    // algo
+    if (_wallet) {
+      // algo
+    }
   }
 }
 
 export async function login() {
   try {
-    // await window.web3Modal.connect();
-    await window.ethereum.enable();
+    await window.web3Modal.connect();
+    // await window.ethereum.enable();
   } catch(err) {
   }
   
@@ -154,7 +157,7 @@ export async function changeNetwork(_chainId) {
       */
     //});
     setTimeout(() => {
-      window.location.reload();
+      // window.location.reload();
     }, 700);
   }
 
