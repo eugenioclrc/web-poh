@@ -28,7 +28,10 @@
           <h2 class="card-title">How do i play? 🕹️</h2>
           <p>
             First make sure that you have installed the Metamask extension.<br />
-            Then make sure you have some Görli ETH, which you will use to send transactions. If not you cang get some from <a href="https://goerli-faucet.pk910.de/" target="_blank" class="link-primary">this faucet</a><br />
+            Then make sure you have some Görli ETH, which you will use to send transactions. If not you can get 
+            some from <a href="https://goerli-faucet.pk910.de/" target="_blank" rel="noreferrer" class="link-primary hover">this faucet</a> or 
+              <a href="https://goerlifaucet.com/" target="_blank" rel="noreferrer" class="link-primary hover">this faucet</a>
+            <br />
             Finally click play to connect your wallet.
           </p>
         </div>

@@ -2,11 +2,12 @@
 <script lang="ts">
 import {chainId, wallet, login, signer, provider, changeNetwork} from '$lib/eth';
 import getContract from '$lib/contractChallengeFactory';
-import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
+import { PUBLIC_TESTNET_CHAINID, PUBLIC_MULTICALL, PUBLIC_TESTNET_RPC, PUBLIC_CHALLENGE_MANAGER, PUBLIC_MAINNET_RPC, PUBLIC_PROOFOFHACKERNFT } from '$env/static/public';
 import { onMount } from 'svelte';
-import { Contract as MContract, Provider as MProvider, setMulticallAddress } from 'ethers-multicall';
-
+import { Contract as MContract, Provider as MProvider, Provider, setMulticallAddress } from 'ethers-multicall';
+import {JsonRpcProvider} from "@ethersproject/providers";
 import confetti from 'canvas-confetti';
+import { BigNumber, Contract } from 'ethers';
 
 export let challengeAddress;
 let challengeManager;
@@ -18,6 +19,7 @@ let challenge = {
   complete: false,
   value: 0,
   playersPass: 0,
+  minted: true
 }
 
 let notSolved = true;
@@ -26,17 +28,40 @@ export let nameChallenge = ''
 
 let twitterLink = "";
 
-onMount(() => {
+onMount(async () => {
   twitterLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("I have just solve Challenge '"+nameChallenge+"' on "+String(window.location));
+
+  const provider = new JsonRpcProvider(PUBLIC_TESTNET_RPC);
+  const _c = new Contract(PUBLIC_CHALLENGE_MANAGER, [
+    "function challengeBreaks(address challengeFactory) public view returns(uint256)",
+  ], provider);
+
+  challenge.playersPass = await _c.challengeBreaks(challengeAddress);
+  challenge.playersPass = Number(challenge.playersPass);
 });
 
 const multicallAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
 let ethcallProvider;
 
+async function checkMint() {
+  if (!$wallet) {
+    return;
+  }
+  const provider = new JsonRpcProvider(PUBLIC_MAINNET_RPC);
+  const _c = new Contract(PUBLIC_PROOFOFHACKERNFT, [
+    "function balanceOf(address account, uint256 id) public view returns(uint256)",
+  ], provider);
+  const _balance = await _c.balanceOf($wallet, BigNumber.from(challengeAddress));
+  challenge.minted = Number(_balance) > 0;
+}
+
 async function init() {
+  checkMint();
   if (!ethcallProvider) {
     ethcallProvider = new MProvider($provider);
-    setMulticallAddress(31337, multicallAddress);
+    if (PUBLIC_MULTICALL) {
+      setMulticallAddress(Number(PUBLIC_TESTNET_CHAINID), PUBLIC_MULTICALL);
+    }
     await ethcallProvider.init();
   }
   
@@ -51,7 +76,6 @@ async function init() {
   ];
   let challengeContract = new MContract(challengeAddress, abiFactory);
   
-
   [
     challenge.value,
     challenge.instancesNames,
@@ -144,9 +168,25 @@ async function checkChallenge() {
   }
 }
 
+let minting = false;
+
+async function mintNFT() {
+  minting = true;
+  try {
+    const _data = await (await fetch(`/mint?player=${$wallet}&challenge=${challengeAddress}`)).json()
+    
+    const nft = new Contract(PUBLIC_PROOFOFHACKERNFT, ["function mint(address player, address challenge, string memory ipfs, bytes calldata signature) external"], $signer);
+    const tx = await nft.mint(
+            $wallet, challengeAddress, _data.nftUrl, _data.signature
+        );
+    await tx.wait(1);
+  } catch(err) {}
+  await checkMint();
+  minting = false;
+}
 
 
-$: if($wallet && $chainId == PUBLIC_TESTNET_CHAINID) {
+$: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID)) {
   init();
 }
 
@@ -187,14 +227,13 @@ $: if($wallet && $chainId == PUBLIC_TESTNET_CHAINID) {
       <slot name="content" />
     </div>
     {#if challenge.instances.length > 0}
-    <hr />
-    <div class="font-mono text-2xl py-6">
-      {#each challenge.instancesNames as _name, i}
-      Instance <b>{_name}</b> deployed at:
-      <a href="https://goerli.etherscan.io/address/{challenge.instances[i]}" class="link-primary" target="_blank" rel="noreferrer">{challenge.instances[i]}</a><br />
-      {/each}
-
-    </div>
+      <hr />
+      <div class="font-mono text-2xl py-6">
+        {#each challenge.instancesNames as _name, i}
+          Instance <b>{_name}</b> deployed at:
+          <a href="https://goerli.etherscan.io/address/{challenge.instances[i]}" class="link-primary" target="_blank" rel="noreferrer">{challenge.instances[i]}</a><br />
+        {/each}
+      </div>
     {/if}
 
     <hr />
@@ -207,13 +246,17 @@ $: if($wallet && $chainId == PUBLIC_TESTNET_CHAINID) {
         {#if challenge.instances.length == 0}
           <button class="btn btn-primary" class:cursor-wait={deploying}  disabled={deploying} on:click={deploy}>Deploy</button>
         {:else}
-          <!--<div class="form-control mt-6 w-1/2 mx-auto"><button class="btn btn-primary">Deploy</button> <a href="/play" class="btn btn-outline mt-2">All challenges</a></div>-->
-          <!--
-          -->
+          {#if !challenge.minted && challenge.break}
+            <button
+              class:cursor-wait={minting} disabled={minting}
+              on:click={mintNFT}
+              class="btn text-white no-underline text-xl btn-secondary my-2" target="_blank" rel="noreferrer">Mint NFT badge</button>
+          {/if}
+
           {#if challenge.break && challenge.complete}
             <a
               href={twitterLink}
-              class="btn text-white no-underline text-xl btn-secondary my-2" target="_blank">Share on twitter</a>
+              class="btn text-gray-800 no-underline text-xl btn-success my-2" target="_blank" rel="noreferrer">Share on twitter</a>
           {/if}
           
           {#if !challenge.break}
