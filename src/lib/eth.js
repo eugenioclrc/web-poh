@@ -98,12 +98,12 @@ export async function init() {
 }
 
 export async function login() {
+  await init();
   try {
     await window.web3Modal.connect();
     // await window.ethereum.enable();
   } catch(err) {
   }
-  
   await init();
 }
 
