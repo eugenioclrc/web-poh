@@ -3,10 +3,10 @@
   import ethernautLevels from "$lib/levels-ethernaut";
 </script>
 
-<PageChallenge challengeAddress={ethernautLevels[3]} nameChallenge={'Telephone - Ethernaut - Level 2'}>
+<PageChallenge challengeAddress={ethernautLevels[3]} nameChallenge={'Telephone - Ethernaut - Level 3'}>
   <slot slot="challengeTitle">Challenge 3, Telephone</slot>
   <slot slot="content">
-    <h6 class="text-2xl font-semibold">
+    <h6 class="text-2xl">
       Claim ownership of the contract below to complete this level.
     </h6>
     <p class="mt-2 mb-4 text-slate-700 text-lg">

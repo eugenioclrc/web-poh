@@ -4,7 +4,8 @@ export default [
   "0x67c696Abde4c7a9318276C234F377dA6dCFD0952", // level 0 fallback
   "0x88B47Af0987853EA5F0663a68E0b4ef0229580eE", // level 1 fallout
   "0xaDA5DA185F5bddB85Bf0fea2488101AC31BE3332", // level2 coinflip
-  "0x16b206f9134Fb26fFeAe5670d179EC630ba48e67" // level3 telephone
+  "0x16b206f9134Fb26fFeAe5670d179EC630ba48e67", // level3 telephone
+  "0x0072144d036d6E9c21cB4D13a7B0c55a88A3fB72" // level4 token
 ];
 /*
 export default PUBLIC_TESTNET_CHAINID == "31337" ? [

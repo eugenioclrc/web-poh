@@ -26,6 +26,12 @@ let Challenges = [
     desc: "Telephone, challenge made by Kyle Riley",
     url: '/tracks/ethernaut/c3-telephone'
   },
+  {
+    tip: 'Telephone',
+    name: "Level 4 - Token",
+    desc: "Challenge made by Alejandro Santander",
+    url: '/tracks/ethernaut/c4-token'
+  },
 ];
 </script>
 <div class="container w-full mx-auto md:py-14">

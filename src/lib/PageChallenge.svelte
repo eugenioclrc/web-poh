@@ -197,7 +197,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID)) {
 
   <div class="lg:w-[920px] mx-auto py-4 px-4 card shadow-2xl bg-base-100">
 
-    <div class="px-4 py-5 flex-auto prose">
+    <div class="px-4 py-5 flex-auto prose w-full" style="max-width: 100%">
       <!--<div
             class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-sky-200">
             🏴‍☠️  
