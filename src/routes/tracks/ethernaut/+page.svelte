@@ -14,6 +14,12 @@ let Challenges = [
     desc: "Challenge made by Alejandro Santander",
     url: '/tracks/ethernaut/c1-fallout'
   },
+  {
+    tip: 'CoinFlip',
+    name: "Level 2 - CoinFlip",
+    desc: "CoinFlip, challenge made by Kyle Riley",
+    url: '/tracks/ethernaut/c2-coinflip'
+  },  
 ];
 </script>
 <div class="container w-full mx-auto md:py-14">
