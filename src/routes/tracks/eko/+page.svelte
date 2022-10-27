@@ -2,41 +2,31 @@
 import { wallet } from '$lib/eth.js';
 
 let Challenges = [
-  // {url: '/tracks/ethernaut/c0-fallback'},
-  // {url: '/tracks/ethernaut/c0-fallback'},
-  // {url: '/tracks/ethernaut/c0-fallback'},
-  // {url: '/tracks/ethernaut/c0-fallback'}
 ];
 </script>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-      <div class="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-        <div class="card-body">
-          <div class="text-center lg:text-left">
-            <h1 class="text-5xl font-bold">EKO Challenges</h1>
-            {#if $wallet}
-              <p class="py-6">Welcome 
-                <b>{$wallet.slice(0,6)}...{$wallet.slice(-6)}</b>
-                <br />
-                <span class="underline">Please pick your challenge:</span>
-              </p>
-            {/if}
-          </div>
-          TODO
-          {#each Challenges as c, i}
-            <div class="form-control mt-6">
-              <div class="tooltip" data-tip={c.tip}>
-                <a href={c.url} class="btn btn-primary" class:btn-link={c.solved}>
-                  {#if c.solved}
-                    <span class="text-green-500">✓</span>
-                  {/if}
-                  <span class:line-through={c.solved}>Challenge {i}</span>
-                </a>
-              </div>
-            </div>
-          {/each}
-          
-        </div>
-      </div>
+<div class="container w-full mx-auto md:py-14">
+  <div class="card max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
+    <figure class="max-h-60 overflow-hidden"><img src="/eko2022-cover.jpg" alt="Ethernaut" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-4xl flex flex-wrap">
+        EKO2022 Enter the metaverse
+        <div class="badge badge-secondary badge-outline text-xs">NEW</div>
+      </h2>
+      <span class="text-sm">
+        A collection of challenges made for the  <a href="https://www.ekoparty.org/" target="_blank" rel="noreferrer">EKO party</a> submited by some gigabrains hackers;
+        @bronicle, @adriro, @nicobevi.eth, @tnth, @matta and 0x4non...<br />
+        <b>Challenges will be posted the 02/11/2022.</b>
+      </span>
+    </div>
+    <ul class="menu bg-base-300 w-full rounded-box border-t border-gray-400 rounded-t-none text-left">
+      {#each Challenges as c,i}
+        <li class="hover-bordered" class:rounded-none={i == 0} class:border-t={i > 0} border-t-gray-500={i > 0}>
+          <a href={c.url} class="flex flex-col flex-grow">
+            <div class="w-full text-xl">{c.name}</div>
+            <div class="w-full">{c.desc}</div>
+          </a>
+        </li>
+      {/each}
+    </ul>
   </div>
 </div>
