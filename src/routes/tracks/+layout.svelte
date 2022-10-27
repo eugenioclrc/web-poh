@@ -7,7 +7,7 @@
 		init();
 	})
 </script>
-<main class="min-h-screen">
-		<Header />
-		<slot></slot>
-	</main>
+<main>
+	<Header />
+	<slot></slot>
+</main>

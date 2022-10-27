@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-slate-300 flex justify-center">
+<div class="min-h-screen flex justify-center">
   <div class="md:max-w-6xl md:flex justify-evenly">
     <div class="w-full sm:w-8/12 md:w-5/12 py-4 px-4 text-center">
       <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
