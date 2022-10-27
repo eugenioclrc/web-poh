@@ -24,18 +24,15 @@ let Challenges = [
         The Ethernaut
         <div class="badge badge-secondary badge-outline text-xs">As seen in OZ</div>
       </h2>
+      <span class="text-sm">
+        A Web3based wargame inspired by overthewire, to be played in the Ethereum Virtual Machine. Each level is a smart contract that needs to be 'hacked'.<br />
+        The game acts both as a tool for those interested in learning ethereum, and as a way to catalogue historical 
+        hacks as levels. There can be an infinite number of levels and the game does not require to be played in any 
+        particular order. Source <a href="https://github.com/OpenZeppelin/ethernaut" class="link-primary" target="_blank" rel="noreferrer">OpenZeppelin/ethernaut</a>
+        
+      </span>
+
       <!--
-      <div class="divider"></div>
-      <div class="lg:text-left">
-        <h1 class="text-xl font-bold">Challenges</h1>
-        {#if $wallet}
-          <p class="py-6">Welcome 
-            <b>{$wallet.slice(0,6)}...{$wallet.slice(-6)}</b>
-            <br />
-            <span class="underline">Please pick your challenge:</span>
-          </p>
-        {/if}
-      </div>
       {#each Challenges as c,i}
         <div class="form-control mt-6">
           <div class="tooltip" data-tip={c.tip}>
