@@ -1,8 +1,10 @@
-
+<script>
+  import mainLogo from "$lib/assets/400x400.jpg";
+</script>
 <div class="min-h-screen max-w-full flex flex-col">
   <div class="w-full h-1/2 min-h-[360px] flex-grow text-center hero" style="background-color: #0f1118">
     <div class="flex flex-col">
-      <img src="/400x400.jpg" class="rounded-sm mx-auto mt-4" alt="anon" /><br>
+      <img src={mainLogo} class="rounded-sm mx-auto mt-4" alt="anon" /><br>
       <a href="/tracks" class="btn btn-accent mx-4 md:mx-0 text-2xl my-4">Hey Anon, Let`s play!
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
