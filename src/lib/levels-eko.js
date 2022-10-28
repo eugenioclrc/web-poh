@@ -12,7 +12,7 @@ export default writable([
   {
     tip: 'Hack the Mothership',
     name: "Hack the Mothership",
-    desc: "A big alien float is near the Earth! You and a small group of scientist have been working on a global counteroffensive agains the invader. Hack the Mothership, save the earth",
+    desc: "A big alien float is near the Earth! You and a small group of scientist have been working on a global counteroffensive against the invader. Hack the Mothership, save the earth",
     url: '/tracks/eko2022/hack-the-mothership',
     address: "",
     image: "/hack-the-mothership.jpg",
@@ -21,7 +21,7 @@ export default writable([
   {
     tip: 'Trickster',
     name: "Trickster",
-    desc: "We have spot a honeypot... Can you managed to see the real jackpot.",
+    desc: "We might have spotted a honeypot... Can you manage to obtain the real jackpot?",
     // url: '/tracks/eko2022/trickster',
     address: "",
     count: null,
@@ -37,7 +37,7 @@ export default writable([
   {
     tip: 'Kioskito',
     name: "Kioskito",
-    desc: "Everyone has  the World Cup trading cards and you only have one buck to buy some trading cards. :(",
+    desc: "Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(",
     // url: '/tracks/eko2022/kioskito',
     address: "",
     count: null,
@@ -45,7 +45,7 @@ export default writable([
   {
     tip: 'Smart Horrorcrux',
     name: "Smart Horrorcrux",
-    desc: "Some security researchers have recently found an octave Horrocrux, it seems that Voldermort has link to a smart contract, can you destroy it?",
+    desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldermort has link to a smart contract, can you destroy it?",
     // url: '/tracks/eko2022/smart-horrorcrux',
     address: "",
     count: null,
