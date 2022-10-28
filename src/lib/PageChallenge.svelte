@@ -25,6 +25,7 @@ let challenge = {
 let notSolved = true;
 
 export let nameChallenge = ''
+export let challengeImage = "";
 
 let twitterLink = "";
 
@@ -198,13 +199,13 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challengeAddress)
 
 <div style="background: #ABB8C3" class="max-w-8xl mx-auto pt-6 px-4 sm:px-6 md:px-8">
 
-  <div class="lg:w-[920px] mx-auto py-4 px-4 card shadow-2xl bg-base-100">
-
-    <div class="px-4 py-5 flex-auto prose w-full" style="max-width: 100%">
-      <!--<div
-            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-sky-200">
-            🏴‍☠️  
-          </div> -->
+  <div class="lg:w-[920px] mx-auto pb-4 card shadow-2xl bg-base-100">
+    {#if challengeImage}
+      <figure class="max-h-60 overflow-hidden">
+        <img src={challengeImage} class="w-full" alt={nameChallenge} /></figure>
+    {/if}
+  
+    <div class="px-6 py-5 flex-auto prose w-full" style="max-width: 100%">
       <h1 class="text-4xl font-bold mb-4">
         {#if challenge.break}
           <span class="text-green-500">✓</span>
@@ -282,6 +283,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challengeAddress)
       {/if}
       <slot name="bottomlinks"></slot>
     </div>
+    
       
   </div>
 

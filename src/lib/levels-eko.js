@@ -14,6 +14,7 @@ export default writable([
     desc: "A big alien float is near the Earth! You and a small group of scientist have been working on a global counteroffensive agains the invader. Hack the Mothership, save the earth",
     url: '/tracks/eko2022/hack-the-mothership',
     address: "",
+    image: "/hack-the-mothership.jpg",
     count: null,
   },
   {
