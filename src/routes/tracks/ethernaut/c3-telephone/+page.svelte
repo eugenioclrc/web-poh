@@ -3,7 +3,7 @@
   import ethernautLevels from "$lib/levels-ethernaut";
 </script>
 
-<PageChallenge challengeAddress={ethernautLevels[3].address} nameChallenge={'Telephone - Ethernaut - Level 3'}>
+<PageChallenge challengeAddress={$ethernautLevels[3].address} nameChallenge={'Telephone - Ethernaut - Level 3'}>
   <slot slot="challengeTitle">Challenge 3, Telephone</slot>
   <slot slot="content">
     <h6 class="text-2xl">
