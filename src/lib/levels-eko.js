@@ -31,8 +31,9 @@ export default writable([
     tip: 'RootMe',
     name: "RootMe",
     desc: "Can you trick the machine to get root access?",
-    // url: '/tracks/eko2022/rootme',
+    url: '/tracks/eko2022/rootme',
     address: "",
+    image: "/rootme.png",
     count: null,
   },
   {
