@@ -36,6 +36,7 @@
 	"dependencies": {
 		"@pinata/sdk": "^1.2.1",
 		"@tailwindcss/typography": "^0.5.7",
+		"@urql/svelte": "^3.0.1",
 		"canvas-confetti": "^1.6.0",
 		"daisyui": "^2.33.0",
 		"ethers": "^5.7.2",

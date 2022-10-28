@@ -1,38 +1,10 @@
 <script>
 import { wallet } from '$lib/eth.js';
 
-let Challenges = [
-  {
-    tip: 'Fallback',
-    name: "Level 0 - Fallback",
-    desc: "Challenge made by Alejandro Santander",
-    url: '/tracks/ethernaut/c0-fallback'
-  },
-  {
-    tip: 'Fal1out',
-    name: "Level 1 - Fallout",
-    desc: "Challenge made by Alejandro Santander",
-    url: '/tracks/ethernaut/c1-fallout'
-  },
-  {
-    tip: 'CoinFlip',
-    name: "Level 2 - CoinFlip",
-    desc: "CoinFlip, challenge made by Kyle Riley",
-    url: '/tracks/ethernaut/c2-coinflip'
-  },
-  {
-    tip: 'Telephone',
-    name: "Level 3 - Telephone",
-    desc: "Telephone, challenge made by Kyle Riley",
-    url: '/tracks/ethernaut/c3-telephone'
-  },
-  {
-    tip: 'Telephone',
-    name: "Level 4 - Token",
-    desc: "Challenge made by Alejandro Santander",
-    url: '/tracks/ethernaut/c4-token'
-  },
-];
+import Challenges from "$lib/levels-ethernaut";
+
+
+
 </script>
 <div class="container w-full mx-auto md:py-14">
   <div class="card max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
@@ -66,10 +38,19 @@ let Challenges = [
       -->
     </div>
     <ul class="menu bg-base-300 w-full rounded-box border-t border-gray-400 rounded-t-none text-left">
-      {#each Challenges as c,i}
+      {#each $Challenges as c,i}
         <li class="hover-bordered" class:rounded-none={i == 0} class:border-t={i > 0} border-t-gray-500={i > 0}>
           <a href={c.url} class="flex flex-col flex-grow">
-            <div class="w-full text-xl">{c.name}</div>
+            <div class="w-full text-xl flex justify-between">
+              <div>{c.name}</div>
+              {#if c.count === 0}
+                <div class="badge badge-secondary badge-outline">Never hacked!!</div>
+              {:else if c.count === 1}
+                <div class="badge badge-outline badge-primary">Hacked only once!</div>
+              {:else if c.count > 1}
+                <div class="badge badge-outline">Hacked {c.count} times</div>
+              {/if}
+            </div>
             <div class="w-full">{c.desc}</div>
           </a>
         </li>
