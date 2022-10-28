@@ -15,7 +15,7 @@ import ekoLevels from "$lib/levels-eko";
         <div class="badge badge-secondary badge-outline text-xs">NEW</div>
       </h2>
       <span class="text-sm">
-        A collection of challenges made for the  <a href="https://www.ekoparty.org/" target="_blank" rel="noreferrer">EKO party</a> submited by some gigabrains hackers;
+        A collection of challenges made for the  <a href="https://www.ekoparty.org/" target="_blank" rel="noreferrer">EKO party</a> submited by some gigabrain hackers;
         @bronicle, @adriro, @nicobevi.eth, @tnth, @matta and 0x4non...<br />
         <b>Challenges will be posted the 02/11/2022.</b>
       </span>

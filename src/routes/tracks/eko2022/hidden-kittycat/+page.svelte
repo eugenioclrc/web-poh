@@ -7,8 +7,10 @@
   <slot slot="challengeTitle">{$ekoLevels[0].name}</slot>
   <slot slot="content">
     <p class="mt-2 mb-4 text-slate-700 text-lg">
-      Lucas is a scientist who lives in a house with 2^256 rooms. His cat is lost in the house, each time you can you find it?<br /> 
-      Set the variable <code>catFound</code> to true to win this challenge.<br /><br />
+      Lucas is a scientist who lives with his cat in a big house that has 2^256 rooms. His cat likes to play hide and 
+      seek and jumps to a random room in the house whenever it hears a door opening in another room. Can you 
+      find Lucas' cat? Set the variable <code>catFound</code> to <code>true</code> to win this challenge.
+      <br /><br />
       <b>Things that might help:</b><br />
       - Some basic YUL: <a href="https://docs.soliditylang.org/en/v0.8.17/yul.html#evm-dialect" class="link-secondary link-hover" target="_blank" rel="noreferrer">v0.8.17/yul.html</a><br />
       <br />
