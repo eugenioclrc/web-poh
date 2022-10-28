@@ -218,7 +218,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challengeAddress)
         <p class="text-xs">
           This challenge 
           {#if !challenge.playersPass}
-          has never been pass!!!
+          hasn't been passed by anyone yet!!!
           {:else if challenge.playersPass == 1}
           has been pass only once!
           {:else}
