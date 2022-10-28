@@ -3,7 +3,7 @@ export default writable([
   {
     tip: 'The Lost Kitty',
     name: "The Lost Kitty",
-    desc: "Lucas is a scientist who lives in a house with 2^256 rooms. His cat is lost in the house, each time you can you find it?",
+    desc: "Lucas is a scientist who has lost his cat in a big house that has 2^256 rooms, can you find it?",
     url: '/tracks/eko2022/hidden-kittycat',
     address: "",
     image:"/hidden-kittycat.png",
