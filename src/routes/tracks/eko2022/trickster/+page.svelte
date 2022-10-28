@@ -3,7 +3,7 @@
   import ekoLevels from "$lib/levels-eko";
 </script>
 
-<PageChallenge challengeAddress={$ekoLevels[2].address} nameChallenge={$ekoLevels[2].name} challengeImage={$ekoLevels[2].image}>
+<PageChallenge challenge={$ekoLevels[2]}>
   <slot slot="challengeTitle">{$ekoLevels[2].name}</slot>
   <slot slot="content">
     <p class="mt-2 mb-4 text-slate-700 text-lg">

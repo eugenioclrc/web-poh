@@ -3,7 +3,7 @@
   import ethernautLevels from "$lib/levels-ethernaut";
 </script>
 
-<PageChallenge challengeAddress={$ethernautLevels[0].address} nameChallenge={'Fallback - Ethernaut - Level 0'}>
+<PageChallenge challenge={$ethernautLevels[0]}>
   <slot slot="challengeTitle">Challenge 0, Fallback</slot>
   <slot slot="content">
     <h6 class="text-2xl font-semibold">
