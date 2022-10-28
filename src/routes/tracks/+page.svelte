@@ -8,7 +8,7 @@
             🏴‍☠️  
           </div>
           <h6 class="text-xl font-semibold">
-            <a href="/tracks/eko" class="text-primary hover:underline">EKO Challenges</a>
+            <a href="/tracks/eko2022" class="text-primary hover:underline">EKO2022</a>
           </h6>
           <p class="mt-2 mb-4 text-slate-500">
             Enter the metaverse... A selected track of blockchain challenges specially crafted for the EKO party security conference.</p>
