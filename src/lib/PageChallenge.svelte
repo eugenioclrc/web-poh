@@ -197,11 +197,11 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challengeAddress)
 
 </script>
 
-<div style="background: #ABB8C3" class="max-w-8xl mx-auto pt-6 px-4 sm:px-6 md:px-8">
+<div class="max-w-8xl mx-auto pt-6 px-4 sm:px-6 md:px-8 pb-6">
 
   <div class="lg:w-[920px] mx-auto pb-4 card shadow-2xl bg-base-100">
     {#if challengeImage}
-      <figure class="max-h-60 overflow-hidden">
+      <figure class="max-h-48 overflow-hidden">
         <img src={challengeImage} class="w-full" alt={nameChallenge} /></figure>
     {/if}
   

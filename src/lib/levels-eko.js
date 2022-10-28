@@ -6,6 +6,7 @@ export default writable([
     desc: "Lucas is a scientist who lives in a house with 2^256 rooms. His cat is lost in the house, each time you can you find it?",
     url: '/tracks/eko2022/hidden-kittycat',
     address: "",
+    image:"/hidden-kittycat.png",
     count: null,
   },
   {
