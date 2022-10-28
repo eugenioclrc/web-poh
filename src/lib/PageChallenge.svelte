@@ -29,6 +29,9 @@ export let nameChallenge = ''
 let twitterLink = "";
 
 onMount(async () => {
+  if(!challengeAddress) {
+    return;
+  }
   twitterLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("I have just solve Challenge '"+nameChallenge+"' on "+String(window.location));
 
   const provider = new JsonRpcProvider(PUBLIC_TESTNET_RPC);
@@ -186,7 +189,7 @@ async function mintNFT() {
 }
 
 
-$: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID)) {
+$: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challengeAddress) {
   init();
 }
 
@@ -238,11 +241,19 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID)) {
 
     <hr />
     <div class="form-control mt-6 w-1/2 mx-auto">
+      {#if !challengeAddress}
+        <div class="alert alert-warning shadow-lg">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+            <span>Sorry, this challenge has not been published yet.</span>
+          </div>
+        </div>
+      {/if}
       {#if !$wallet}
         <button class="btn btn-primary" on:click={login}>Connect wallet</button>
       {:else if $chainId != Number(PUBLIC_TESTNET_CHAINID)}
         <button class="btn btn-primary" on:click={() => {changeNetwork(PUBLIC_TESTNET_CHAINID)}}>Connect to goerli</button>
-      {:else}
+      {:else if challengeAddress}
         {#if challenge.instances.length == 0}
           <button class="btn btn-primary" class:cursor-wait={deploying}  disabled={deploying} on:click={deploy}>Deploy</button>
         {:else}
