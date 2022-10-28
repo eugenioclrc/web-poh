@@ -22,8 +22,9 @@ export default writable([
     tip: 'Trickster',
     name: "Trickster",
     desc: "We might have spotted a honeypot... Can you manage to obtain the real jackpot?",
-    // url: '/tracks/eko2022/trickster',
+    url: '/tracks/eko2022/trickster',
     address: "",
+    image: "/trickster.png",
     count: null,
   },
   {
