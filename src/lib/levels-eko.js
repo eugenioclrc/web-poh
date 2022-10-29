@@ -49,8 +49,9 @@ export default writable([
     tip: 'Smart Horrorcrux',
     name: "Smart Horrorcrux",
     desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldermort has link to a smart contract, can you destroy it?",
-    // url: '/tracks/eko2022/smart-horrorcrux',
+    url: '/tracks/eko2022/smart-horrorcrux',
     address: "",
+    image: "/horrocruxes.png",
     count: null,
   },
   {
