@@ -40,8 +40,9 @@ export default writable([
     tip: 'Kioskito',
     name: "Kioskito",
     desc: "Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(",
-    // url: '/tracks/eko2022/kioskito',
+    url: '/tracks/eko2022/kioskito',
     address: "",
+    image: "/bridge.png",
     count: null,
   },
   {
