@@ -20,7 +20,7 @@
     </p>
     <p>
       <small>Challenge author: 
-        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="link-hover link-neutral">bengalaQ</a>
+        <a href="https://twitter.com/AugustitoQ" target="_blank" rel="noreferrer" class="link-hover link-neutral">bengalaQ</a>,
         a little guy who is interested in almost everything. School teacher in another life.
       </small>
     </p>
