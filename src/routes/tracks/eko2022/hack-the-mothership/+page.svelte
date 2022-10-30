@@ -6,8 +6,7 @@
 <PageChallenge challenge={$ekoLevels[1]}>
   <slot slot="challengeTitle">A big alien fleet is near the Earth!</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
-      
+    <p>
       You and a small group of scientist have been working on a global counteroffensive against the invader.<br />
       We've recovered some of the ship's sourcecode and we need to find a way to hack it!<br />
       You have studied the code and you found out that you need to hack the mothership if you want to survive!<br />
@@ -17,6 +16,8 @@
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
         mothership.sol
       </a>
+    </p>
+    <p>
       <small>Challenge author: <a href="https://twitter.com/nicobevi_eth"  target="_blank" rel="noreferrer" class="link-hover link-neutral">nicobevi.eth</a></small>
     </p>
   </slot>
