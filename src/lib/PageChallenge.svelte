@@ -201,9 +201,11 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
 
 
 </script>
+<svelte:head>
+  {challenge.name} | EVM blockchain CTF
+</svelte:head>
 
 <div class="max-w-8xl mx-auto pt-6 px-4 sm:px-6 md:px-8 pb-6">
-
   <div class="lg:w-[920px] mx-auto pb-4 card shadow-2xl bg-base-100">
     {#if challenge.image}
       <figure class="max-h-48 overflow-hidden bg-black">
