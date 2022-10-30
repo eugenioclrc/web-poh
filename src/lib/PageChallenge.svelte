@@ -40,12 +40,17 @@ onMount(async () => {
   }
   twitterLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("I have just solve Challenge '"+challenge.name+"' on "+String(window.location));
 
-  const provider = new JsonRpcProvider(PUBLIC_TESTNET_RPC);
-  const _c = new Contract(PUBLIC_CHALLENGE_MANAGER, [
-    "function challengeBreaks(address challengeFactory) public view returns(uint256)",
-  ], provider);
+  
+  try {
+    const provider = new JsonRpcProvider(PUBLIC_TESTNET_RPC);
+    const _c = new Contract(PUBLIC_CHALLENGE_MANAGER, [
+      "function challengeBreaks(address challengeFactory) public view returns(uint256)",
+    ], provider);
 
-  challengeData.playersPass = await _c.challengeBreaks(challenge.address);
+    challengeData.playersPass = await _c.challengeBreaks(challenge.address);
+  } catch(err) {
+
+  }
   challengeData.playersPass = Number(challengeData.playersPass);
 });
 
@@ -202,7 +207,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
 
 </script>
 <svelte:head>
-  {challenge.name} | EVM blockchain CTF
+  <title>{challenge.name} | EVM blockchain CTF</title>
 </svelte:head>
 
 <div class="max-w-8xl mx-auto pt-6 px-4 sm:px-6 md:px-8 pb-6">

@@ -1,5 +1,5 @@
 <script>
-  import { login, wallet, provider, chainId, changeNetwork } from '$lib/eth.js';
+  import { login, wallet, provider, chainId, changeNetwork, disconnect } from '$lib/eth.js';
   import {utils} from 'ethers';
   import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
 
@@ -46,7 +46,7 @@
             <div class="dropdown dropdown-hover dropdown-end z-10">
                 <label tabindex="0" class="btn btn-outline m-1 bg-white">{$wallet.slice(0,6)}...{$wallet.slice(-4)}</label>
                 <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><button>Disconnect</button></li>
+                    <li><button on:click={disconnect}>Disconnect</button></li>
                 </ul>
             </div>
         {:else}
