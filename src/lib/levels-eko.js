@@ -57,9 +57,10 @@ export default writable([
   {
     tip: 'The Golden Ticket',
     name: "The Golden Ticket",
-    desc: "Getting a ticket for the EKO party is tough, you will have to wait for many years and be really lucky",
-    // url: '/tracks/eko2022/the-golden-ticket',
+    desc: "Mint your ticket to the eko party, if you are patient and lucky enough.",
+    url: '/tracks/eko2022/the-golden-ticket',
     address: "",
+    image: "/golden-ticket.gif",
     count: null,
   }
 ]);

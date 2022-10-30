@@ -206,8 +206,9 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
 
   <div class="lg:w-[920px] mx-auto pb-4 card shadow-2xl bg-base-100">
     {#if challenge.image}
-      <figure class="max-h-48 overflow-hidden">
-        <img src={challenge.image} class="w-full" alt={challenge.name} /></figure>
+      <figure class="max-h-48 overflow-hidden bg-black">
+        <img src={challenge.image} class:w-full={!challenge.image.includes(".gif")} alt={challenge.name} />
+      </figure>
     {/if}
   
     <div class="px-6 py-5 flex-auto prose w-full" style="max-width: 100%">
