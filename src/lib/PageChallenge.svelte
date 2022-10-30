@@ -254,7 +254,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
     {/if}
 
     <hr />
-    <div class="form-control mt-6 mx-auto">
+    <div class="form-control mt-6 mx-auto px-4">
       {#if !challenge.address}
         <div class="alert alert-warning shadow-lg">
           <div>
