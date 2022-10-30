@@ -45,7 +45,7 @@ export default writable([
     name: "Level 5 - Delegation",
     desc: "Challenge made by Alejandro Santander",
     url: '/tracks/ethernaut/c5-delegation',
-    address: "0xF2AA9cF9FFd926C459af211321B5F8c716390216", // level 5 delegation
+    address: "0x4020c3A9a2077225C1A1f485E84bb15c12932485", // level 5 delegation
     count: null,
   }  
 ]);
