@@ -46,10 +46,10 @@ export default writable([
     count: null,
   },
   {
-    tip: 'Smart Horrorcrux',
-    name: "Smart Horrorcrux",
-    desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldermort has link to a smart contract, can you destroy it?",
-    url: '/tracks/eko2022/smart-horrorcrux',
+    tip: 'Smart Horrocrux',
+    name: "Smart Horrocrux",
+    desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldemort has link to a smart contract, can you destroy it?",
+    url: '/tracks/eko2022/smart-horrocrux',
     address: "",
     image: "/horrocruxes.png",
     count: null,
@@ -62,5 +62,16 @@ export default writable([
     address: "",
     image: "/golden-ticket.gif",
     count: null,
-  }
+  },
+  {
+    tip: 'Stonks',
+    name: "Stonks",
+    desc: "You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money",
+    url: '/tracks/eko2022/stonks',
+    address: "",
+    image: "/stonks.png",
+    count: null,
+  },
+  
+
 ]);

@@ -3,11 +3,11 @@
   import ekoLevels from "$lib/levels-eko";
 </script>
 
-<PageChallenge challenge={$ekoLevels[5]}>
-  <slot slot="challengeTitle">{$ekoLevels[5].name}</slot>
+<PageChallenge challenge={$ekoLevels[7]}>
+  <slot slot="challengeTitle">{$ekoLevels[7].name}</slot>
   <slot slot="content">
     <p class="mt-2 mb-4 text-slate-700 text-lg">
-      Some security researchers have recently found an eighth Horrocrux, it seems that Voldermort has link to a smart contract, can you destroy it?
+      You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money
       <br />
       <!--
       <b>Things that might help:</b><br />
