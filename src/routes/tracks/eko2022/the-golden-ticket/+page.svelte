@@ -24,8 +24,8 @@
     </p>
     <p>
       <small>Challenge author: 
-        <a href="https://linktr.ee/chiin.eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">chiin.eth</a>
-        Interested in smart contracts security since last month (thanks to WebtrES community).
+        <a href="https://linktr.ee/chiin.eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">chiin.eth</a>,
+        interested in smart contracts security since last month (thanks to WebtrES community).
       </small>
     </p>
   </slot>
