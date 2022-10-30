@@ -245,16 +245,16 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
     </div>
     {#if challengeData.instances.length > 0}
       <hr />
-      <div class="font-mono text-2xl py-6">
+      <div class="font-mono text-2xl p-6">
         {#each challengeData.instancesNames as _name, i}
           Instance <b>{_name}</b> deployed at:
-          <a href="https://goerli.etherscan.io/address/{challengeData.instances[i]}" class="link-primary" target="_blank" rel="noreferrer">{challengeData.instances[i]}</a><br />
+          <a href="https://goerli.etherscan.io/address/{challengeData.instances[i]}" class="link-primary truncate" target="_blank" rel="noreferrer">{challengeData.instances[i]}</a><br />
         {/each}
       </div>
     {/if}
 
     <hr />
-    <div class="form-control mt-6 w-1/2 mx-auto">
+    <div class="form-control mt-6 mx-auto">
       {#if !challenge.address}
         <div class="alert alert-warning shadow-lg">
           <div>
