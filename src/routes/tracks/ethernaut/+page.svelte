@@ -42,7 +42,7 @@ import Challenges from "$lib/levels-ethernaut";
       {#each $Challenges as c,i}
         <li class="hover-bordered" class:rounded-none={i == 0} class:border-t={i > 0} border-t-gray-500={i > 0}>
           <a href={c.url} class="flex flex-col flex-grow border-t-gray-500" 
-          style={i > 0 ? 'border-bottom: 1px solid #666':''}>
+          style={i > 0 ? 'border-top: 1px solid #666':''}>
             <div class="w-full text-xl flex justify-between">
               <div>{c.name}</div>
               {#if c.count === 0}
