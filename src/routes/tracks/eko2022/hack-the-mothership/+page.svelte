@@ -17,6 +17,7 @@
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
         mothership.sol
       </a>
+      <small>Challenge author: <a href="https://twitter.com/nicobevi_eth"  target="_blank" rel="noreferrer" class="link-hover link-neutral">nicobevi.eth</a></small>
     </p>
   </slot>
 
