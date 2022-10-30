@@ -6,7 +6,7 @@
 <PageChallenge challenge={$ekoLevels[3]}>
   <slot slot="challengeTitle">{$ekoLevels[3].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
+    <p class="text-lg">
       Can you trick the machine to get root access?<br />
       <br />
       <b>Things that might help:</b><br />
@@ -16,6 +16,11 @@
         rootme.sol
       </a>
     </p>
+    <p>
+      <small>Challenge author: 
+        <a href="https://twitter.com/tinchoabbate" target="_blank" rel="noreferrer" class="link-hover link-neutral">tinchoabbate</a>,
+        ethereum security researcher. Former lead security auditor at OpenZeppelin, and before that web app pentester.
+      </small>
   </slot>
 
   <slot slot="code">
