@@ -5,9 +5,10 @@ import Challenges from "$lib/levels-ethernaut";
 
 
 
+
 </script>
-<div class="container w-full mx-auto md:py-14">
-  <div class="card max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
+<div class="container w-full mx-auto md:py-14 pb-10">
+  <div class="card max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100 rounded-t-none md:rounded-lg">
     <figure class="max-h-60 overflow-hidden"><img src="/ethernaut-cover.jpg" alt="Ethernaut" /></figure>
     <div class="card-body">
       <h2 class="card-title text-4xl flex flex-wrap">
