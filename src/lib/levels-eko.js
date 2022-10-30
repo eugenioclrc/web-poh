@@ -81,6 +81,15 @@ export default writable([
     // image: "/stonks.png",
     count: null,
   },
+  {
+    tip: 'Pelusa',
+    name: "Pelusa",
+    desc: "Its 1986, you are in the football world cup (Mexico86), help Diego to make a goal.",
+    // url: '/tracks/eko2022/stonks',
+    address: "",
+    // image: "/stonks.png",
+    count: null,
+  },
   
 
 ]);
