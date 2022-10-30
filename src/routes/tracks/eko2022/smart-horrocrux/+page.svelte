@@ -6,7 +6,7 @@
 <PageChallenge challenge={$ekoLevels[5]}>
   <slot slot="challengeTitle">{$ekoLevels[5].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
+    <p class="text-lg">
       Some security researchers have recently found an eighth Horrocrux, it seems that Voldemort has link to a smart contract, can you destroy it?
       <br />
       <!--
@@ -17,6 +17,12 @@
         rootme.sol
       </a>
       -->
+    </p>
+    <p>
+      <small>Challenge author: 
+        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="link-hover link-neutral">bengalaQ</a>
+        a little guy who is interested in almost everything. School teacher in another life.
+      </small>
     </p>
   </slot>
 

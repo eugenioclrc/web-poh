@@ -57,7 +57,7 @@ export default writable([
     desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldemort has link to a smart contract, can you destroy it?",
     url: '/tracks/eko2022/smart-horrocrux',
     address: "",
-    image: "/horrocruxes.png",
+    image: "/horrocruxes.jpg",
     count: null,
   },
   {
