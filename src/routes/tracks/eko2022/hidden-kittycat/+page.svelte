@@ -6,7 +6,7 @@
 <PageChallenge challenge={$ekoLevels[0]}>
   <slot slot="challengeTitle">{$ekoLevels[0].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
+    <p class="text-lg">
       Lucas is a scientist who lives with his cat in a big house that has 2^256 rooms. His cat likes to play hide and 
       seek and jumps to a random room in the house whenever it hears a door opening in another room. Can you 
       find Lucas' cat? Set the variable <code>catFound</code> to <code>true</code> to win this challenge.
@@ -17,6 +17,11 @@
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
         hiddenkittycat.sol
       </a>
+    </p>
+    <p>
+      <small>Challenge author: 
+        <a href="https://twitter.com/Cryptonicle1" target="_blank" rel="noreferrer" class="link-hover link-neutral">Br0niclΞ | luksgrin.lens</a>
+      </small>
     </p>
   </slot>
 
