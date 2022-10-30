@@ -6,7 +6,7 @@
 <PageChallenge challenge={$ekoLevels[4]}>
   <slot slot="challengeTitle">{$ekoLevels[4].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
+    <p class="text-lg">
       Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(<br />
       <br />
       <!--
@@ -18,6 +18,11 @@
       </a>
       -->
     </p>
+    <p>
+      <small>Challenge author: 
+        <a href="https://twitter.com/adrianromero" target="_blank" rel="noreferrer" class="link-hover link-neutral">adriro</a>
+      </small>
+    </p>    
   </slot>
 
   <slot slot="code">
