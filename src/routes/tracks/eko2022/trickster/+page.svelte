@@ -17,7 +17,7 @@
     </p>
     <p>
       <small>Challenge author: 
-        <a href="https://twitter.com/mattaereal" target="_blank" rel="noreferrer" class="link-hover link-neutral">mattaereal</a>: 
+        <a href="https://twitter.com/mattaereal" target="_blank" rel="noreferrer" class="link-hover link-neutral">matta</a>: 
         Hacker. Security researcher. Currently working in Ethereum.
       </small>
     </p>
