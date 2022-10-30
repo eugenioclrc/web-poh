@@ -6,7 +6,7 @@
 <PageChallenge challenge={$ekoLevels[6]}>
   <slot slot="challengeTitle">{$ekoLevels[6].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
+    <p class="text-lg">
       The organizers of Ekoparty decided that the tickets for the 2023 conference would be purchased
       through a smart contract. However, the conference is oversold and you have to sign up for a 
       waitlist to get your ticket. The problem is that they put you on hold for two years and
@@ -21,6 +21,12 @@
         rootme.sol
       </a>
       -->
+    </p>
+    <p>
+      <small>Challenge author: 
+        <a href="https://linktr.ee/chiin.eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">chiin.eth</a>
+        Interested in smart contracts security since last month (thanks to WebtrES community).
+      </small>
     </p>
   </slot>
 
