@@ -1,6 +1,7 @@
 <script>
-  import { login, wallet, provider } from '$lib/eth.js';
+  import { login, wallet, provider, chainId, changeNetwork } from '$lib/eth.js';
   import {utils} from 'ethers';
+  import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
 
   let balance = new Promise(() => {});
   let timeout;
@@ -34,7 +35,7 @@
     <div class="navbar-end">
         {#if !$wallet}
             <button on:click={login} class="btn btn-primary">Connect</button>
-        {:else}
+        {:else if $chainId == Number(PUBLIC_TESTNET_CHAINID)}
             {#await balance}
                 <button class="btn btn-square loading -mr-4"></button>
             {:then value}
@@ -48,6 +49,8 @@
                     <li><button>Disconnect</button></li>
                 </ul>
             </div>
+        {:else}
+            <button on:click={() => changeNetwork(PUBLIC_TESTNET_CHAINID)} tabindex="0" class="btn-sm btn btn-outline m-1 text-xs bg-red-200">WRONG NETWORK</button>      
         {/if}
     </div>
 </div>
