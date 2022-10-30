@@ -18,7 +18,7 @@
       </a>
     </p>
     <p>
-      <small>Challenge author: <a href="https://twitter.com/nicobevi_eth"  target="_blank" rel="noreferrer" class="link-hover link-neutral">nicobevi.eth</a></small>
+      <small>Challenge author: <a href="https://twitter.com/nicobevi_eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">nicobevi.eth</a></small>
     </p>
   </slot>
 
