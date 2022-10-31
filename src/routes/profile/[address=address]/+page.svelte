@@ -58,13 +58,14 @@
     async function setUsername() {
         newUsername = newUsername.replace("@", '').trim();
         try {
-            const tx = await getContract().contract.setUsername(formatBytes32String(newUsername));
+            const {contract: manager} = await getContract();
+            const tx = await manager.setUsername(formatBytes32String(newUsername));
             alert("please wait until transaction is finished and thegraph updates your username, usually takes a couple of minutes");
             await tx.wait(1);
             document.location.reload();
         } catch(err) {
-            alert("there is an unexpected error, check your RPC node connection");
             console.error(err);
+            alert("there is an unexpected error, check your RPC node connection");
         }
     }
 
