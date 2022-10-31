@@ -95,9 +95,9 @@ export default writable([
     tip: 'Pelusa',
     name: "Pelusa",
     desc: "Its 1986, you are in the football world cup (Mexico86), help Diego to make a goal.",
-    // url: '/tracks/eko2022/stonks',
+    url: '/tracks/eko2022/pelusa',
     address: "",
-    // image: "/stonks.png",
+    image: "/eldie.png",
     count: null,
   },
   

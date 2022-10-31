@@ -3,24 +3,24 @@
   import ekoLevels from "$lib/levels-eko";
 </script>
 
-<PageChallenge challenge={$ekoLevels[7]}>
-  <slot slot="challengeTitle">{$ekoLevels[7].name}</slot>
+<PageChallenge challenge={$ekoLevels[8]}>
+  <slot slot="challengeTitle">{$ekoLevels[8].name}</slot>
   <slot slot="content">
-    <p class="mt-2 mb-4 text-slate-700 text-lg">
-      You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money.
-      <br />
-      <!--
-      <b>Things that might help:</b><br />
-      - Felling dizy? take a look to out <a href="https://docs.soliditylang.org/en/latest/abi-spec.html" target="_blank" rel="noreferrer">user documentation</a><br />
+    <p class="text-lg">
+      You just open your eyes and are in Mexico 1986, help Diego to set the score from 1 to 2 goals for a win, do what ever is necessary!
+      <br /><br />
       <br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
-        rootme.sol
+        pelusa.sol
       </a>
-      -->
     </p>
-    <small>Challenge author: 
-        <a href="https://twitter.com/eugenioclrc" target="_blank" rel="noreferrer" class="link-hover link-neutral">0x4non</a>
-    </small>
+    <p>
+      <small>Challenge author: 
+        0x4non
+      </small>
+    </p>
+    
+    
   </slot>
 
   <slot slot="code">
