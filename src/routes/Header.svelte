@@ -46,6 +46,7 @@
             <div class="dropdown dropdown-hover dropdown-end z-10">
                 <a href="/profile/{$wallet}" class="btn btn-outline m-1 bg-white">{$wallet.slice(0,6)}...{$wallet.slice(-4)}</a>
                 <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="/profile/{$wallet}">Profile</a></li>
                     <li><button on:click={disconnect}>Disconnect</button></li>
                 </ul>
             </div>
