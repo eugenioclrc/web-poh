@@ -1,8 +1,9 @@
 import { writable } from "svelte/store";
+ 
 export default writable([
   {
     emoji: '🐈',
-    intent: 'I have just help Lucas to found his cat! $URL #CTF #solidity #CTFPROTOCOL',
+    intent: 'I have helped Lucas find his cat! $URL #CTF #solidity #CTFPROTOCOL',
     name: "The Lost Kitty",
     desc: "Lucas is a scientist who has lost his cat in a big house that has 2^256 rooms, can you find it?",
     url: '/tracks/eko2022/hidden-kittycat',
@@ -12,7 +13,7 @@ export default writable([
   },
   {
     emoji: '👾',
-    intent: 'I have hack the Mothership and save the Earth! $URL #CTF #solidity #CTFPROTOCOL',
+    intent: 'I have hacked the Mothership and saved the Earth! $URL #CTF #solidity #CTFPROTOCOL',
     name: "Hack the Mothership",
     desc: "A big alien float is near the Earth! You and a small group of scientist have been working on a global counteroffensive against the invader. Hack the Mothership, save the earth",
     url: '/tracks/eko2022/hack-the-mothership',
@@ -22,7 +23,7 @@ export default writable([
   },
   {
     emoji: '🃏',
-    intent: 'No one can trickme! what about you anon? $URL #CTF #solidity #CTFPROTOCOL',
+    intent: 'No one can trick me! What about you anon? $URL #CTF #solidity #CTFPROTOCOL',
     name: "Trickster",
     desc: "We might have spotted a honeypot... Can you manage to obtain the real jackpot?",
     url: '/tracks/eko2022/trickster',
@@ -32,7 +33,7 @@ export default writable([
   },
   {
     emoji: '👩🏻‍💻',
-    intent: 'Hey anon, i have root privileges now... $URL #CTF #solidity #CTFPROTOCOL',
+    intent: 'Look at me anon, I have root privileges now... $URL #CTF #solidity #CTFPROTOCOL',
     name: "RootMe",
     desc: "Can you trick the machine to get root access?",
     url: '/tracks/eko2022/rootme',
@@ -81,7 +82,7 @@ export default writable([
   },
   {
     emoji: "🟪",
-    tip: 'Phoenixtto',
+    intent: 'Anon, you gotta catch \'Em All! $URL #CTF #solidity #CTFPROTOCOL',
     name: "Phoenixtto",
     desc: "A wild Phoenixtto appears, capture the Phoenixtto, if you can...",
     url: '/tracks/eko2022/phoenixtto',
@@ -91,6 +92,7 @@ export default writable([
   },
   {
     emoji: "🤾🏾‍♂️",
+    intent: 'Just break the "Hand Of God" challenge without sweat $URL #CTF #solidity #CTFPROTOCOL',
     name: "Pelusa",
     desc: "Its 1986, you are in the football world cup (Mexico86), help Diego to make a goal.",
     url: '/tracks/eko2022/pelusa',
