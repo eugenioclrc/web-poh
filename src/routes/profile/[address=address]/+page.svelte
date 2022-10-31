@@ -120,8 +120,6 @@
 </script>
 <main>
 	<Header />
-	
-
     <div class="max-w-2xl mx-auto p-6">
         <div class="bg-white shadow rounded-lg p-10">
             <div class="flex flex-col gap-1 text-center items-center">
