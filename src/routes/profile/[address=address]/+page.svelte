@@ -64,6 +64,7 @@
             document.location.reload();
         } catch(err) {
             alert("there is an unexpected error, check your RPC node connection");
+            console.error(err);
         }
     }
 
