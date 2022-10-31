@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 export default writable([
   {
     emoji: '🐈',
-    tip: 'The Lost Kitty',
+    intent: 'I have just help Lucas to found his cat! $URL #CTF #solidity #CTFPROTOCOL',
     name: "The Lost Kitty",
     desc: "Lucas is a scientist who has lost his cat in a big house that has 2^256 rooms, can you find it?",
     url: '/tracks/eko2022/hidden-kittycat',
@@ -12,7 +12,7 @@ export default writable([
   },
   {
     emoji: '👾',
-    tip: 'Hack the Mothership',
+    intent: 'I have hack the Mothership and save the Earth! $URL #CTF #solidity #CTFPROTOCOL',
     name: "Hack the Mothership",
     desc: "A big alien float is near the Earth! You and a small group of scientist have been working on a global counteroffensive against the invader. Hack the Mothership, save the earth",
     url: '/tracks/eko2022/hack-the-mothership',
@@ -22,7 +22,7 @@ export default writable([
   },
   {
     emoji: '🃏',
-    tip: 'Trickster',
+    intent: 'No one can trickme! what about you anon? $URL #CTF #solidity #CTFPROTOCOL',
     name: "Trickster",
     desc: "We might have spotted a honeypot... Can you manage to obtain the real jackpot?",
     url: '/tracks/eko2022/trickster',
@@ -32,7 +32,7 @@ export default writable([
   },
   {
     emoji: '👩🏻‍💻',
-    tip: 'RootMe',
+    intent: 'Hey anon, i have root privileges now... $URL #CTF #solidity #CTFPROTOCOL',
     name: "RootMe",
     desc: "Can you trick the machine to get root access?",
     url: '/tracks/eko2022/rootme',
@@ -42,7 +42,7 @@ export default writable([
   },
   {
     emoji: "🏪",
-    tip: 'Kioskito',
+    intent: 'I got all the trading cards, what about you anon? $URL #CTF #solidity #CTFPROTOCOL',
     name: "Kioskito",
     desc: "Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(",
     url: '/tracks/eko2022/kioskito',
@@ -52,7 +52,7 @@ export default writable([
   },
   {
     emoji: '🐍',
-    tip: 'Smart Horrocrux',
+    intent: 'I have just defeated Voldemort destroying the last Horrocrux. $URL #CTF #solidity #CTFPROTOCOL',
     name: "Smart Horrocrux",
     desc: "Some security researchers have recently found an eighth Horrocrux, it seems that Voldemort has link to a smart contract, can you destroy it?",
     url: '/tracks/eko2022/smart-horrocrux',
@@ -62,7 +62,7 @@ export default writable([
   },
   {
     emoji: '🎟',
-    tip: 'The Golden Ticket',
+    intent: 'The Golden Ticket is mine. $URL #CTF #solidity #CTFPROTOCOL',
     name: "The Golden Ticket",
     desc: "Mint your ticket to the eko party, if you are patient and lucky enough.",
     url: '/tracks/eko2022/the-golden-ticket',
@@ -72,7 +72,6 @@ export default writable([
   },
   {
     emoji: '📈',
-    tip: 'Stonks',
     name: "Stonks",
     desc: "You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money",
     url: '/tracks/eko2022/stonks',
