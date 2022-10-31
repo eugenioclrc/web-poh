@@ -85,9 +85,9 @@ export default writable([
     tip: 'TheThing',
     name: "TheThing",
     desc: "At an Antarctica research site, the discovery of an alien form contract leads you to a confrontation.",
-    // url: '/tracks/eko2022/stonks',
+    url: '/tracks/eko2022/the-thing',
     address: "",
-    // image: "/stonks.png",
+    image: "/thething.png",
     count: null,
   },
   {
