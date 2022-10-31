@@ -33,7 +33,6 @@
         if(_avatarURI) {
             avatarURI = _avatarURI;
         }  
-        await init();
         
 	    const { data } = await getClient().query(`
 		query {
@@ -54,7 +53,7 @@
             player.challenges = data.player.challenges.map(c => c.challenge.id);
             newUsername = player.username || '';
         }
-
+        
         try {
             const abiFactory = ["function usernames(address) external view returns(bytes32)",];
             const provider = new StaticJsonRpcProvider(PUBLIC_TESTNET_RPC);
@@ -67,8 +66,9 @@
         } catch(err){
             console.log(err)
         }
-    })
-
+        await init();
+    });
+    
     
     async function setUsername() {
         newUsername = newUsername.replace("@", '').trim();
