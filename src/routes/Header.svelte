@@ -1,38 +1,56 @@
-<div class="navbar">
-  <div class="flex-1">
-    <a class="text-orange-400 btn btn-ghost normal-case text-xl">
-			CTF PROTOCOL
-		</a>
-  </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal p-0">
-      <li><a>Item 1</a></li>
-      <li tabindex="0">
-        <button
-							class="bg-white text-slate-700 active:bg-slate-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none "
-							href="/learning-lab/tailwind-starter-kit/documentation/download">Connect wallet</button>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
+<script>
+  import { login, wallet, provider, chainId, changeNetwork, disconnect } from '$lib/eth.js';
+  import {utils} from 'ethers';
+  import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
+
+  let balance = new Promise(() => {});
+  let timeout;
+  $: if($wallet) {
+
+    if(timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      balance = $provider.getBalance($wallet).catch();
+    }, 1000);
+  }
+</script>
+<div class="navbar bg-slate-900">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost text-white lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/tracks/ethernaut">Ethernaut</a></li>
+          <li><a href="/tracks/eko2022">Eko</a></li>
+        </ul>
+      </div>
+      <a href="/" class="btn btn-ghost normal-case text-white text-xl">CTF Protocol</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal p-0 text-white">
+        <li><a href="/tracks/ethernaut">Ethernaut</a></li>
+        <li><a href="/tracks/eko2022">Eko</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+        {#if !$wallet}
+            <button on:click={login} class="btn btn-primary">Connect</button>
+        {:else if $chainId == Number(PUBLIC_TESTNET_CHAINID)}
+            {#await balance}
+                <button class="btn btn-square loading -mr-4"></button>
+            {:then value}
+                <div class="btn no-animation cursor-default -mr-4">
+                    {Number(utils.formatEther(value)).toFixed(2)} ETH
+                </div>
+            {/await}
+            <div class="dropdown dropdown-hover dropdown-end z-10">
+                <a href="/profile/{$wallet}" class="btn btn-outline m-1 bg-white">{$wallet.slice(0,6)}...{$wallet.slice(-4)}</a>
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><button on:click={disconnect}>Disconnect</button></li>
+                </ul>
+            </div>
+        {:else}
+            <button on:click={() => changeNetwork(PUBLIC_TESTNET_CHAINID)} tabindex="0" class="btn-sm btn btn-outline m-1 text-xs bg-red-200">WRONG NETWORK</button>      
+        {/if}
+    </div>
 </div>
-<!--
-				<ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-					<li class="flex items-center"><a
-							class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-							href="#pablo"><i class="lg:text-slate-200 text-slate-400 fab fa-facebook text-lg leading-lg "></i><span
-								class="lg:hidden inline-block ml-2">Share</span></a></li>
-					<li class="flex items-center"><a
-							class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-							href="#pablo"><i class="lg:text-slate-200 text-slate-400 fab fa-twitter text-lg leading-lg "></i><span
-								class="lg:hidden inline-block ml-2">Tweet</span></a></li>
-					<li class="flex items-center"><a
-							class="lg:text-white lg:hover:text-slate-200 text-slate-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-							href="#pablo"><i class="lg:text-slate-200 text-slate-400 fab fa-github text-lg leading-lg "></i><span
-								class="lg:hidden inline-block ml-2">Star</span></a></li>
-					<li class="flex items-center"><a
-							class="download-button bg-white text-slate-700 active:bg-slate-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-							href="/learning-lab/tailwind-starter-kit/documentation/download"><i
-								class="fas fa-arrow-alt-circle-down"></i> Download</a></li>
-				</ul>
--->

@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import { init } from "$lib/eth";
-	import Header from "./Header.svelte";
+	import Header from "../Header.svelte";
 	import levels from "$lib/levels-ethernaut";
 	
 	// import { PUBLIC_TESTNET_CHAINID } from '$env/static/public';
