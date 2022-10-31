@@ -5,11 +5,11 @@
 	import { init, wallet } from "$lib/eth";
 	import Header from "../../Header.svelte";
     import getClient from "$lib/graphql";
-
+    import getContract from '$lib/contractChallengeFactory';
     import { StaticJsonRpcProvider } from '@ethersproject/providers';
-
-    import { AvatarResolver, utils as avtUtils } from '@ensdomains/ens-avatar';
-	import { getAddress } from "ethers/lib/utils";
+    
+    import { AvatarResolver } from '@ensdomains/ens-avatar';
+	import { getAddress, formatBytes32String } from "ethers/lib/utils";
   
     let avatarURI = '/unknown.jpg';
     $: address = getAddress($page.params.address);
@@ -18,6 +18,9 @@
         totalHacks: 0,
         challenges: [],
     };
+
+    let newUsername = '';
+    let modalTw = false;
     
     onMount(async () => {
         init();
@@ -46,11 +49,23 @@
             player.username = data.player.username;
             player.totalHacks = data.player.totalHacks;
             player.challenges = data.player.challenges.map(c => c.challenge.id);
+            newUsername = player.username || '';
         }
 
     })
 
     
+    async function setUsername() {
+        newUsername = newUsername.replace("@", '').trim();
+        try {
+            const tx = await getContract().contract.setUsername(formatBytes32String(newUsername));
+            alert("please wait until transaction is finished and thegraph updates your username, usually takes a couple of minutes");
+            await tx.wait(1);
+            document.location.reload();
+        } catch(err) {
+            alert("there is an unexpected error, check your RPC node connection");
+        }
+    }
 
 /*
     import levels from "$lib/levels-ethernaut";
@@ -104,7 +119,7 @@
                 </div>
                 {#if address == $wallet}
                     <button
-                        on:click={() => alert("TODO")}
+                        on:click={() => modalTw = true}
                         class="btn text-white no-underline text-xl btn-secondary my-2" target="_blank" rel="noreferrer">Link twitter handle</button>
                 {/if}
             </div>
@@ -127,3 +142,17 @@
         </div>
     </div>
 </main>
+<div class="modal backdrop-blur-sm" class:modal-open={modalTw}>
+  <div class="modal-box p-0">
+    <div class="p-4 text-center">
+        <h3 class="font-bold text-lg">What is your twitter handle?</h3>
+        <div class="form-control w-full max-w-xs mx-auto">
+            <input type="text" placeholder="twitterUsername" value={newUsername} class="input input-bordered w-full max-w-xs" />
+            </div>
+    </div>
+    <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-around">
+        <button type="button" class="btn btn-success" on:click={setUsername}>Update</button>
+        <button type="button" class="btn btn-error btn-outline" on:click={() => { modalTw = false }}>Cancel</button>        
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ let mcontract: any;
 const abiFactory = [
     "function deployChallenge(address) external",
     "function breakChallenge(address) external",
+    "function setUsername(bytes32 _name) external",
     "function getChallengesInstances(address,address) external view returns(address[] memory)",
     "function checkChallenge(address user, address challengeFactory) public view returns(bool)",
     "function userChallengeBreak(address user, address challengeFactory) public view returns(bool)",
