@@ -9,7 +9,9 @@
     import { StaticJsonRpcProvider } from '@ethersproject/providers';
     
     import { AvatarResolver } from '@ensdomains/ens-avatar';
-	import { getAddress, formatBytes32String } from "ethers/lib/utils";
+	import { getAddress, formatBytes32String, parseBytes32String } from "ethers/lib/utils";
+	import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_TESTNET_RPC } from "$env/static/public";
+	import { Contract } from "ethers";
   
     let avatarURI = '/unknown.jpg';
     $: address = getAddress($page.params.address);
@@ -21,9 +23,9 @@
 
     let newUsername = '';
     let modalTw = false;
+    let updating = false;
     
     onMount(async () => {
-        init();
         const provider = new StaticJsonRpcProvider('https://rpc.ankr.com/eth');
 
         const avt = new AvatarResolver(provider);
@@ -31,7 +33,8 @@
         if(_avatarURI) {
             avatarURI = _avatarURI;
         }  
-    
+        await init();
+        
 	    const { data } = await getClient().query(`
 		query {
             player(id: "${address.toLocaleLowerCase()}") {
@@ -52,6 +55,18 @@
             newUsername = player.username || '';
         }
 
+        try {
+            const abiFactory = ["function usernames(address) external view returns(bytes32)",];
+            const provider = new StaticJsonRpcProvider(PUBLIC_TESTNET_RPC);
+            const manager = new Contract(PUBLIC_CHALLENGE_MANAGER, abiFactory, provider);
+            const username = parseBytes32String(await manager.usernames(address));
+            if (username) {
+                player.username = username;
+                newUsername = username || '';
+            }
+        } catch(err){
+            console.log(err)
+        }
     })
 
     
@@ -60,6 +75,7 @@
         try {
             const {contract: manager} = await getContract();
             const tx = await manager.setUsername(formatBytes32String(newUsername));
+            updating = true;
             alert("please wait until transaction is finished and thegraph updates your username, usually takes a couple of minutes");
             await tx.wait(1);
             document.location.reload();
@@ -67,6 +83,7 @@
             console.error(err);
             alert("there is an unexpected error, check your RPC node connection");
         }
+        updating = false;
     }
 
 /*
@@ -110,7 +127,7 @@
             <div class="flex flex-col gap-1 text-center items-center">
                 <img class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4" src={avatarURI} alt="Player avatar" />
                 {#if player.username}
-                    <a href="https://twitter.com/${player.username}" rel="noreferrer" target="_blank" class="link link-hover link-primary font-semibold">@{"das"}</a>
+                    <a href="https://twitter.com/{player.username}" rel="noreferrer" target="_blank" class="link link-hover link-primary font-semibold">@{player.username}</a>
                 {:else}
                     <p class="font-semibold">{address.slice(0,6)}.....{address.slice(-4)}</p>
                 {/if}
@@ -149,12 +166,12 @@
     <div class="p-4 text-center">
         <h3 class="font-bold text-lg">What is your twitter handle?</h3>
         <div class="form-control w-full max-w-xs mx-auto">
-            <input type="text" placeholder="twitterUsername" value={newUsername} class="input input-bordered w-full max-w-xs" />
+            <input type="text" placeholder="twitterUsername" bind:value={newUsername} class="input input-bordered w-full max-w-xs" />
             </div>
     </div>
     <div class="bg-gray-50 px-4 py-3 sm:px-6 flex flex-row-reverse justify-around">
-        <button type="button" class="btn btn-success" on:click={setUsername}>Update</button>
-        <button type="button" class="btn btn-error btn-outline" on:click={() => { modalTw = false }}>Cancel</button>        
+        <button type="button" class="btn btn-success" disabled={updating} on:click={setUsername}>{updating ? 'Wait..':' Update'}</button>
+        <button type="button" class="btn btn-error btn-outline" on:click={() => { modalTw = false }}>Close</button>        
     </div>
   </div>
 </div>
