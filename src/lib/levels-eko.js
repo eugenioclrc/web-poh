@@ -91,7 +91,6 @@ export default writable([
   },
   {
     emoji: "🤾🏾‍♂️",
-    tip: 'Pelusa',
     name: "Pelusa",
     desc: "Its 1986, you are in the football world cup (Mexico86), help Diego to make a goal.",
     url: '/tracks/eko2022/pelusa',
@@ -99,6 +98,13 @@ export default writable([
     image: "/eldie.png",
     count: null,
   },
-  
-
+  {
+    emoji: "🔧",
+    name: "The Valve",
+    desc: "The evil Dr Gas has created a System to steal all gweis in existance. You must find a nozzle that opens the valve!",
+    url: '/tracks/eko2022/the-valve',
+    address: "",
+    image: "/valve.png",
+    count: null,
+  }
 ]);
