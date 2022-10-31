@@ -1,6 +1,9 @@
 <script>
   import mainLogo from "$lib/assets/400x400.jpg";
 </script>
+<svelte:head>
+  <title>CTF Protocol, HACK2MINT</title>
+</svelte:head>
 <div class="min-h-screen max-w-full flex flex-col">
   <div class="w-full h-1/2 min-h-[360px] flex-grow text-center hero" style="background-color: #0f1118">
     <div class="flex flex-col">
