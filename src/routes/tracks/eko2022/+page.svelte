@@ -1,6 +1,4 @@
 <script>
-import { wallet } from '$lib/eth.js';
-
 import ekoLevels from "$lib/levels-eko";
 </script>
 <svelte:head>
