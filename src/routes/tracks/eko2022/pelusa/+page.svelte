@@ -3,8 +3,8 @@
   import ekoLevels from "$lib/levels-eko";
 </script>
 
-<PageChallenge challenge={$ekoLevels[8]}>
-  <slot slot="challengeTitle">{$ekoLevels[8].name}</slot>
+<PageChallenge challenge={$ekoLevels[9]}>
+  <slot slot="challengeTitle">{$ekoLevels[9].name}</slot>
   <slot slot="content">
     <p class="text-lg">
       You just open your eyes and are in Mexico 1986, help Diego to set the score from 1 to 2 goals for a win, do what ever is necessary!
@@ -16,7 +16,7 @@
     </p>
     <p>
       <small>Challenge author: 
-        0x4non
+        <a href="https://twitter.com/eugenioclrc" target="_blank" rel="noreferrer" class="link-hover link-neutral">0x4non</a>
       </small>
     </p>
     
