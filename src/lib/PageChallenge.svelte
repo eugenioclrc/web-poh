@@ -11,6 +11,9 @@ import { BigNumber, Contract } from 'ethers';
 
 let challengeManager;
 
+let modal = false;
+let showModal = false;
+
 export let challenge = {
   name: "",
   desc: "",
@@ -18,6 +21,7 @@ export let challenge = {
   address: "",
   image: "",
   count: null,
+  intent: '',
 }
 
 let challengeData = {
@@ -35,11 +39,13 @@ let notSolved = true;
 let twitterLink = "";
 
 onMount(async () => {
+  twitterLink = "https://twitter.com/intent/tweet?text="+
+  encodeURIComponent(challenge.intent ? challenge.intent.replace("$URL", String(window.location)) :
+  "I have just solve Challenge '"+challenge.name+"' on "+String(window.location));
+
   if(!challenge.address) {
     return;
   }
-  twitterLink = "https://twitter.com/intent/tweet?text="+encodeURIComponent("I have just solve Challenge '"+challenge.name+"' on "+String(window.location));
-
   
   try {
     const provider = new JsonRpcProvider(PUBLIC_TESTNET_RPC);
@@ -140,26 +146,19 @@ async function checkSubmitChallenge() {
       await init();
       if (challengeData.break) {
         confetti();
-        /*
-        if (solved && !showModal) {
-          showModal = true;
-          setTimeout(() => {
-            modal = true;
-          }, 700);
-        }
-        */
       }
     } catch(err) {
       console.error(err);
     }
     checking = false;
   }
-    // if (solved && !showModal) {
-    //   showModal = true;
-    //   setTimeout(() => {
-    //     modal = true;
-    //   }, 700);
-    // }
+
+  if (!challengeData.minted && challengeData.break) {
+    showModal = true;
+    setTimeout(() => {
+      modal = true;
+    }, 700);
+  }
   
 }
 
@@ -169,16 +168,15 @@ async function checkChallenge() {
   notSolved = !challengeData.complete;
   
 
-  if (challengeData.break) {
+  if (challengeData.complete) {
     confetti();
-    /*
-    if (solved && !showModal) {
+
+    if (!modal && !showModal) {
       showModal = true;
       setTimeout(() => {
         modal = true;
       }, 700);
     }
-    */
   }
 }
 
@@ -193,6 +191,9 @@ async function mintNFT() {
     const tx = await nft.mint(
             $wallet, challenge.address, _data.nftUrl, _data.signature
         );
+    setTimeout(() => {
+      modal = true;
+    }, 700);
     await tx.wait(1);
   } catch(err) {}
   await checkMint();
@@ -287,11 +288,15 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
           {#if !challengeData.break}
             <button on:click={checkSubmitChallenge}
             class:cursor-wait={checking}  disabled={checking}
-            class:shake={notSolved} class="btn" class:btn-secondary={!challengeData.break} class:btn-link={challengeData.break}>Check</button>
+            class:shake={notSolved} class="btn" class:btn-secondary={!challengeData.break} class:btn-link={challengeData.break}>
+              {checking ? "Checking" : "Check"}
+            </button>
           {:else}
             <button on:click={checkChallenge} class:shake={notSolved} class="btn" class:btn-secondary={!challengeData.complete} class:btn-link={challengeData.complete}>Check</button>
           {/if}
-          <button class="btn btn-warning mt-2" class:cursor-wait={deploying}  disabled={deploying} on:click={deploy}>Reset</button> 
+          <button class="btn btn-warning mt-2" class:cursor-wait={deploying}  disabled={deploying} on:click={deploy}>
+            {deploying ? "Reseting" : "Reset"}
+          </button> 
         {/if}        
       {/if}
       <slot name="bottomlinks"></slot>
@@ -301,4 +306,16 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
   </div>
 
   <slot name="code" />
+</div>
+
+<div class="modal" class:modal-open={modal && twitterLink}>
+  <div class="modal-box">
+    <label on:click={() => modal = !modal} for="my-modal-3" class="btn btn-ghost btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="font-bold text-lg">Congratulations for breaking this challenge!</h3>
+    <p class="py-4">You are awesome! 
+      {minting ? 'While you mint the NFT badge, why' : 'Why'} don`t you brag this achievement with your frens on twitter?</p>
+    <div class="modal-action">
+      <a on:click={() => modal = !modal} href={twitterLink} class="btn text-white no-underline text-xl btn-secondary mt-2" target="_blank">Share on twitter</a>
+    </div>
+  </div>
 </div>
