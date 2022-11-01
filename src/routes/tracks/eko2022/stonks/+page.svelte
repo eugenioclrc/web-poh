@@ -7,7 +7,7 @@
   <slot slot="challengeTitle">{$ekoLevels[7].name}</slot>
   <slot slot="content">
     <p class="mt-2 mb-4 text-slate-700 text-lg">
-      You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money.
+      You have infiltrated in a big investment firm (name says something about arrows), your task is to loose all their money.
       <br />
       <!--
       <b>Things that might help:</b><br />

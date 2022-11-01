@@ -74,7 +74,7 @@ export default writable([
   {
     emoji: '📈',
     name: "Stonks",
-    desc: "You have infiltrated in a big investment firm (name say something about arrows), your task is to loss all their money",
+    desc: "You have infiltrated in a big investment firm (name says something about arrows), your task is to loose all their money",
     url: '/tracks/eko2022/stonks',
     address: "",
     image: "/stonks.png",
@@ -94,7 +94,7 @@ export default writable([
     emoji: "🤾🏾‍♂️",
     intent: 'Just break the "Hand Of God" challenge without sweat $URL #CTF #solidity #CTFPROTOCOL',
     name: "Pelusa",
-    desc: "Its 1986, you are in the football world cup (Mexico86), help Diego to make a goal.",
+    desc: "Its 1986, you are in the football world cup (Mexico86), help Diego score a goal.",
     url: '/tracks/eko2022/pelusa',
     address: "",
     image: "/eldie.png",

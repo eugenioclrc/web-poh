@@ -7,7 +7,7 @@
   <slot slot="challengeTitle">{$ekoLevels[9].name}</slot>
   <slot slot="content">
     <p class="text-lg">
-      You just open your eyes and are in Mexico 1986, help Diego to set the score from 1 to 2 goals for a win, do what ever is necessary!
+      You just open your eyes and are in Mexico 1986, help Diego to set the score from 1 to 2 goals for a win, do whatever is necessary!
       <br /><br />
       <br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
