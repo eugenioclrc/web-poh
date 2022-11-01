@@ -7,7 +7,7 @@
   <slot slot="challengeTitle">{$ekoLevels[10].name}</slot>
   <slot slot="content">
     <p class="text-lg">
-      The evil Dr Gas has created a System to steal all gweis in existance. You must find a nozzle that opens the valve!
+      The evil Dr. N. Gas has put into orbit a machine that can suck all the air out of the atmosphere. You sneaked into his spaceship and must find a nozzle to open the main valve and stop the machine! Assert the situation and don't panic. Hint: on the valve is marked "model no. EIP-150"
       <br /><br />
       <br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">

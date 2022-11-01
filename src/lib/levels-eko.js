@@ -102,9 +102,10 @@ export default writable([
   },
   {
     emoji: "🔧",
-    name: "The Valve",
-    desc: "The evil Dr Gas has created a System to steal all gweis in existance. You must find a nozzle that opens the valve!",
-    url: '/tracks/eko2022/the-valve',
+    intente: 'I just saved the world by opening a valve on $URL #CTF #solidity #CTFPROTOCOL',
+    name: "Gas Valve",
+    desc: "The evil Dr. N. Gas has created a machine to suck all the air out of the atmosphere. You must deactivate it before it's too late! ",
+    url: '/tracks/eko2022/gas-valve',
     address: "",
     image: "/valve.png",
     count: null,
