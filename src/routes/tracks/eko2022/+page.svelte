@@ -21,7 +21,8 @@ import ekoLevels from "$lib/levels-eko";
         <a href="https://twitter.com/adrianromero" target="_blank" rel="noreferrer" class="link-hover link-neutral">@adriro</a>,
         <a href="https://twitter.com/AugustitoQ" target="_blank" rel="noreferrer" class="link-hover link-neutral">@bengalaQ</a>,
         <a href="https://linktr.ee/chiin.eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">@chiin</a>,
-        <a href="https://twitter.com/victor93389091" target="_blank" rel="noreferrer" class="link-hover link-neutral">@Rotciv</a>
+        <a href="https://twitter.com/victor93389091" target="_blank" rel="noreferrer" class="link-hover link-neutral">@Rotciv</a>,
+        <a href="https://twitter.com/bahurum" target="_blank" rel="noreferrer" class="link-hover link-neutral">@Bahurum</a>
         and 
         <a href="https://twitter.com/eugenioclrc" target="_blank" rel="noreferrer" class="link-hover link-neutral">@0x4non</a>...<br />
         <b>Challenges will be posted the 02/11/2022.</b>
