@@ -319,4 +319,3 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
     </div>
   </div>
 </div>
-demo
