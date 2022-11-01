@@ -13,7 +13,7 @@ import ekoLevels from "$lib/levels-eko";
         <div class="badge badge-secondary badge-outline text-xs">NEW</div>
       </h2>
       <span class="text-sm">
-        A collection of challenges made for the  <a href="https://www.ekoparty.org/" target="_blank" rel="noreferrer">EKO party</a> submited by some gigabrain hackers;
+        A collection of challenges made for the  <a href="https://www.ekoparty.org/" target="_blank" rel="noreferrer">EKOparty</a> submited by some gigabrain hackers;
         <a href="https://twitter.com/Cryptonicle1" target="_blank" rel="noreferrer" class="link-hover link-neutral">@Br0niclΞ</a>,
         <a href="https://twitter.com/nicobevi_eth" target="_blank" rel="noreferrer" class="link-hover link-neutral">@nicobevi.eth</a>,
         <a href="https://twitter.com/mattaereal" target="_blank" rel="noreferrer" class="link-hover link-neutral">@matta</a>,

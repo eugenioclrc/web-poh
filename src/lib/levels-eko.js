@@ -65,7 +65,7 @@ export default writable([
     emoji: '🎟',
     intent: 'The Golden Ticket is mine. $URL #CTF #solidity #CTFPROTOCOL',
     name: "The Golden Ticket",
-    desc: "Mint your ticket to the eko party, if you are patient and lucky enough.",
+    desc: "Mint your ticket to the EKOparty, if you are patient and lucky enough.",
     url: '/tracks/eko2022/the-golden-ticket',
     address: "",
     image: "/golden-ticket.gif",
