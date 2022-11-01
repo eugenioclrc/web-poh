@@ -15,7 +15,7 @@ export default writable([
     emoji: '👾',
     intent: 'I have hacked the Mothership and saved the Earth! $URL #CTF #solidity #CTFPROTOCOL',
     name: "Hack the Mothership",
-    desc: "A big alien float is near the Earth! You and an anon group of scientist have been working on a global counteroffensive against the invader. Hack the Mothership, save the earth",
+    desc: "A big alien float is near the Earth! You and an anon group of scientists have been working on a global counteroffensive against the invader. Hack the Mothership, save the earth",
     url: '/tracks/eko2022/hack-the-mothership',
     address: "",
     image: "/hack-the-mothership.jpg",

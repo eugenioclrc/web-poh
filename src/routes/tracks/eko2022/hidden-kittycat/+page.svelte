@@ -8,7 +8,7 @@
   <slot slot="content">
     <p class="text-lg">
       Lucas is a scientist who lives with his cat in a big house that has 2^256 rooms. His cat likes to play hide and 
-      seek and jumps to a random room in the house whenever it hears a door opening in another room. Can you 
+      seek and jumps to a random room whenever it hears a door opening in another one. Can you 
       find Lucas' cat? Set the variable <code>catFound</code> to <code>true</code> to win this challenge.
       <br /><br />
       <b>Things that might help:</b><br />
