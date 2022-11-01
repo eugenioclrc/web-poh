@@ -43,12 +43,12 @@ export default writable([
   },
   {
     emoji: "🏪",
-    intent: 'I got all the trading cards, what about you anon? $URL #CTF #solidity #CTFPROTOCOL',
-    name: "Kioskito",
-    desc: "Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(",
-    url: '/tracks/eko2022/kioskito',
+    intent: 'I have can you defeat the system, what about you anon? $URL #CTF #solidity #CTFPROTOCOL',
+    name: "Metaverse Supermarket",
+    desc: "We are all living in the Inflation Metaverse, a digital world dominated by the INFLA token. You are out of INFLAs and you are starving, can you defeat the system?",
+    url: '/tracks/eko2022/metaverse-supermarket',
     address: "",
-    image: "/bridge.png",
+    image: "/metaverse-supermarket.png",
     count: null,
   },
   {

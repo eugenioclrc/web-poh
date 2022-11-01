@@ -10,7 +10,7 @@
       Can you trick the machine to get root access?<br />
       <br />
       <b>Things that might help:</b><br />
-      - Felling dizy? take a look to out <a href="https://docs.soliditylang.org/en/latest/abi-spec.html" target="_blank" rel="noreferrer">user documentation</a><br />
+      - Felling dizy? check out the user documentation <a href="https://docs.soliditylang.org/en/latest/abi-spec.html" target="_blank" rel="noreferrer">user documentation</a><br />
       <br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
         rootme.sol

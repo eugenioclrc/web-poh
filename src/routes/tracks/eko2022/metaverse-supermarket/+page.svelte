@@ -7,7 +7,8 @@
   <slot slot="challengeTitle">{$ekoLevels[4].name}</slot>
   <slot slot="content">
     <p class="text-lg">
-      Everyone has the World Cup trading cards and you only have one buck to buy some trading cards. :(<br />
+      We are all living in the Inflation Metaverse, a digital world dominated by the INFLA token. Stability has become a scarce resource and even going to the store is a painful experience: we need to rely on oracles that sign off-chain data that lasts a couple of blocks because updating prices on-chain would be complete madness.<br />
+      You are out of INFLAs and you are starving, can you defeat the system?<br />
       <br />
       <!--
       <b>Things that might help:</b><br />
