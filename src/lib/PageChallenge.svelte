@@ -301,7 +301,7 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
       {/if}
       <slot name="bottomlinks"></slot>
     </div>
-    
+  
       
   </div>
 
@@ -319,3 +319,4 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
     </div>
   </div>
 </div>
+demo
