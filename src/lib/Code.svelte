@@ -3,7 +3,7 @@
 
   import hljs from 'highlightjs';
   import hljsDefineSolidity from 'highlightjs-solidity';
-  import 'highlight.js/styles/vs2015.css';
+  import 'highlightjs/styles/vs2015.css';
   import { onMount } from "svelte";
   import axios from 'axios';
   
@@ -19,10 +19,12 @@
   });
 </script>
 
-<a href={source} target="_blank" rel="noreferrer">
-  <pre class="w-full px-32 mx-auto">
+<div class="mockup-code text-sm max-w-4xl mx-auto mt-5" style="background-color: #191b1d;">
+  <pre class="w-full flex justify-center">
     {#if code}
-      <code class="hljs language-solidity rounded text-sm !px-5 !py-10">{@html code}</code>
+    <code class="hljs language-solidity !bg-transparent">
+      {@html code}
+    </code>
     {/if}
   </pre>
-</a>
+</div>
