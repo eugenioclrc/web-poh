@@ -45,6 +45,7 @@
 		"ethers-multicall": "^0.2.3",
 		"graphql": "^16.6.0",
 		"highlightjs": "^9.16.2",
-		"highlightjs-solidity": "^2.0.5"
+		"highlightjs-solidity": "^2.0.5",
+		"svelte-icons": "^2.1.0"
 	}
 }
