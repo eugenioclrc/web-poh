@@ -1,7 +1,29 @@
 <script>
-import { wallet } from '$lib/eth.js';
 
 import Challenges from "$lib/levels-ethernaut";
+import { onMount } from "svelte";
+import getClient from "$lib/graphql";
+
+onMount(async () => {
+  const { data: {challenges}} = await getClient().query(`
+    query {
+      challenges(
+        where: {id_in: ${JSON.stringify($Challenges.map(e => e.address.toLocaleLowerCase()))}}
+      ) {
+        id
+        count
+      }
+    }`).toPromise();
+  $Challenges.forEach((l,i) => {
+    $Challenges[i].count = 0;
+  });
+  challenges.forEach(c => {
+    let id = $Challenges.findIndex(l => l.address.toLocaleLowerCase() == c.id);
+    if(id > -1) {
+      $Challenges[id].count = Number(c.count);
+    }
+  });
+})
 
 </script>
 <div class="container w-full mx-auto md:py-14 pb-10">

@@ -1,5 +1,34 @@
 <script>
 import ekoLevels from "$lib/levels-eko";
+
+import getClient from "$lib/graphql";
+import { onMount } from "svelte";
+
+onMount(async () => {
+  
+  const { data: {challenges}} = await getClient().query(`
+    query {
+      challenges(
+        where: {id_in: ${JSON.stringify($ekoLevels.map(e => e.address.toLocaleLowerCase()))}}
+      ) {
+        id
+        count
+      }
+    }`).toPromise();
+    $ekoLevels.forEach((l,i) => {
+      $ekoLevels[i].count = 0;
+    });
+    challenges.forEach(c => {
+      let id = $ekoLevels.findIndex(l => l.address.toLocaleLowerCase() == c.id);
+      if(id > -1) {
+        $ekoLevels[id].count = Number(c.count);
+      }
+    });
+
+  // svelte stuff reactity
+  // levels = [...Object.values(levels)];
+})
+
 </script>
 <svelte:head>
   <title>EKO Blockchain CTF - Enter the metaverse</title>
