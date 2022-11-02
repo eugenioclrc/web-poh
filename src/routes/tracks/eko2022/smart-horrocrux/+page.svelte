@@ -11,7 +11,7 @@
       Some security researchers have recently found an eighth Horrocrux, it seems that Voldemort has link to a smart contract, can you destroy it?
       <br /><br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeSmartHorrocrux.sol" target="_blank" rel="noreferrer" class="link-hover link-primary">
-        ChallengeMetaverseSupermarket.sol
+        ChallengeSmartHorrocrux.sol
       </a>
     </p>
     <p>

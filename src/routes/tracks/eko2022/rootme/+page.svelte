@@ -14,7 +14,7 @@
       - Felling dizy? check out the user documentation <a href="https://docs.soliditylang.org/en/latest/abi-spec.html" target="_blank" rel="noreferrer">user documentation</a><br />
       <br />
       Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeRootMe.sol" target="_blank" rel="noreferrer" class="link-hover link-primary">
-        ChallengeTrickster.sol
+        ChallengeRootMe.sol
       </a>
     </p>
     <p>
