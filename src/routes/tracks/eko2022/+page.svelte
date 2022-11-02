@@ -4,8 +4,7 @@ import ekoLevels from "$lib/levels-eko";
 import getClient from "$lib/graphql";
 import { onMount } from "svelte";
 
-onMount(async () => {
-  
+onMount(async () => {  
   const { data: {challenges}} = await getClient().query(`
     query {
       challenges(
@@ -17,6 +16,7 @@ onMount(async () => {
     }`).toPromise();
     $ekoLevels.forEach((l,i) => {
       $ekoLevels[i].count = 0;
+      $ekoLevels[i].pos = i;
     });
     challenges.forEach(c => {
       let id = $ekoLevels.findIndex(l => l.address.toLocaleLowerCase() == c.id);
@@ -28,6 +28,8 @@ onMount(async () => {
   // svelte stuff reactity
   // levels = [...Object.values(levels)];
 })
+
+$: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
 
 </script>
 <svelte:head>
@@ -58,7 +60,7 @@ onMount(async () => {
       </span>
     </div>
     <ul class="menu bg-base-300 w-full rounded-box border-t border-gray-400 rounded-t-none text-left">
-      {#each $ekoLevels.sort((a, b) => (a.count|| 0) - (b.count|| 0)) as c,i}
+      {#each levels as c,i}
         <li class="hover-bordered" class:rounded-none={i == 0}>
           <a href={c.url} class="flex flex-col flex-grow border-t-gray-500" 
           style={i > 0 ? 'border-top: 1px solid #666':''}>
