@@ -1,6 +1,7 @@
 <script>
   import PageChallenge from "$lib/PageChallenge.svelte";
   import ekoLevels from "$lib/levels-eko";
+  import Code from "$lib/Code.svelte";
 </script>
 
 <PageChallenge challenge={$ekoLevels[10]}>
@@ -24,9 +25,8 @@
   </slot>
 
   <slot slot="code">
-    <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeValve.sol" target="_blank" rel="noreferrer">
-      <img src="/eko/code-gasvalve.png" class="mx-auto w-full" style="max-width: 980px" alt="code" />
-    </a>
+    <Code source="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeValve.sol" />
   </slot>
+
   <a slot="bottomlinks" href="/tracks/eko2022" class="btn btn-outline mt-2">All EKO challenges</a>
 </PageChallenge>
