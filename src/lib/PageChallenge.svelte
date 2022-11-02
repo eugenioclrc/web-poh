@@ -113,7 +113,6 @@ async function init() {
   ]);
 
   challengeData.playersPass = Number(challengeData.playersPass);
-console.log(challengeData);
   challengeData = {...challengeData};
 }
 
@@ -126,7 +125,8 @@ async function deploy() {
     await tx.wait(1);
     await init();
   } catch(err){
-
+    alert(err);
+    console.error(err);
   }
   deploying = false;
 }
@@ -319,4 +319,3 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
     </div>
   </div>
 </div>
-demo

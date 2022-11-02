@@ -14,6 +14,7 @@ const challengeFactoryAbi = [
   "function name() external view virtual returns (string memory)",
   "function description() external view virtual returns (string memory)",
   "function image() external view virtual returns (string memory)",
+  "function path() external view virtual returns (string memory)",
 ];
 
 const challengeData = {}
@@ -45,9 +46,13 @@ export async function GET({ url }) {
     NFTmetadata.name = await factoryChallenge.name();
     NFTmetadata.description = await factoryChallenge.description();
     NFTmetadata.image = await factoryChallenge.image();
-    // external_url ?? 
+    NFTmetadata.external_url = 'https://www.ctfprotocol.com/';
+    try {
+      NFTmetadata.external_url += await factoryChallenge.path();
+    } catch(err) {
+      // empty
+    } 
 
-  
     const options = {
         pinataMetadata: {name: challenge },
         pinataOptions: { cidVersion: 0 }

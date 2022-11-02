@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z7J4KC58R"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-8Z7J4KC58R');
+		</script>
+
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-		<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.8/dist/index.js"></script>
-  	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-prefetch>
 		<div>%sveltekit.body%</div>
+		<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.8/dist/index.js"></script>
+  	<script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
 	</body>
 </html>

@@ -14,8 +14,8 @@
       <b>Things that might help:</b><br />
       - Some basic YUL: <a href="https://docs.soliditylang.org/en/v0.8.17/yul.html#evm-dialect" class="link-secondary link-hover" target="_blank" rel="noreferrer">v0.8.17/yul.html</a><br />
       <br />
-      Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
-        hiddenkittycat.sol
+      Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeHiddenKitty.sol" target="_blank" rel="noreferrer" class="link-hover link-primary">
+        ChallengeHiddenKitty.sol
       </a>
     </p>
     <p>
@@ -26,11 +26,10 @@
   </slot>
 
   <slot slot="code">
-    <!--
-    <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/" target="_blank" rel="noreferrer">
-      <img src="/ethernaut-level0.png" class="mx-auto w-full" style="max-width: 980px" alt="code" />
+    <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeHiddenKitty.sol" target="_blank" rel="noreferrer">
+      <img src="/eko/code-hidden-kitty.png" class="mx-auto w-full" style="max-width: 980px" alt="code" />
     </a>
-    -->
+    
   </slot>
   <a slot="bottomlinks" href="/tracks/eko2022" class="btn btn-outline mt-2">All EKO challenges</a>
 </PageChallenge>

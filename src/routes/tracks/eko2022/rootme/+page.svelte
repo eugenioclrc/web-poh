@@ -12,8 +12,8 @@
       <b>Things that might help:</b><br />
       - Felling dizy? check out the user documentation <a href="https://docs.soliditylang.org/en/latest/abi-spec.html" target="_blank" rel="noreferrer">user documentation</a><br />
       <br />
-      Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src" target="_blank" rel="noreferrer" class="link-hover link-primary">
-        rootme.sol
+      Source: <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeRootMe.sol" target="_blank" rel="noreferrer" class="link-hover link-primary">
+        ChallengeTrickster.sol
       </a>
     </p>
     <p>
@@ -24,11 +24,9 @@
   </slot>
 
   <slot slot="code">
-    <!--
-    <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/" target="_blank" rel="noreferrer">
-      <img src="/ethernaut-level0.png" class="mx-auto w-full" style="max-width: 980px" alt="code" />
+    <a href="https://github.com/Proof-Of-Hack-Protocol/challenges/blob/main/src/Eko/ChallengeRootMe.sol" target="_blank" rel="noreferrer">
+      <img src="/eko/code-rootme.png" class="mx-auto w-full" style="max-width: 980px" alt="code" />
     </a>
-    -->
   </slot>
   <a slot="bottomlinks" href="/tracks/eko2022" class="btn btn-outline mt-2">All EKO challenges</a>
 </PageChallenge>

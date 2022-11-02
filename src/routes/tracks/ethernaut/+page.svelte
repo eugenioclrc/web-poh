@@ -3,9 +3,6 @@ import { wallet } from '$lib/eth.js';
 
 import Challenges from "$lib/levels-ethernaut";
 
-
-
-
 </script>
 <div class="container w-full mx-auto md:py-14 pb-10">
   <div class="card max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100 rounded-t-none md:rounded-lg">

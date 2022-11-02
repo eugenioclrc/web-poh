@@ -9,7 +9,7 @@ let contract: any;
 let mcontract: any;
 
 const abiFactory = [
-    "function deployChallenge(address) external",
+    "function deployChallenge(address) external payable",
     "function breakChallenge(address) external",
     "function setUsername(bytes32 _name) external",
     "function usernames(address) external view returns(bytes32)",
