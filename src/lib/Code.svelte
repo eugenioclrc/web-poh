@@ -18,7 +18,7 @@
     hljsDefineSolidity(hljs);
     hljs.initHighlightingOnLoad();
     sourcecode = (await axios.get(source.replace(REPLACE_FROM, REPLACE_TO))).data;
-    code = hljs.highlightAuto(sourcecode).value
+    code = (hljs.highlightAuto(sourcecode).value || '').trim();
   });
 
   let copied = false;
@@ -50,7 +50,7 @@
   <pre class="w-full flex justify-center">
     {#if code}
     <code class="hljs language-solidity !bg-transparent">
-      {@html code}
+      {@html code }
     </code>
     {/if}
   </pre>
