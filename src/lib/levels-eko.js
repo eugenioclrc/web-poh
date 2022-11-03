@@ -87,7 +87,7 @@ export default writable([
     name: "Phoenixtto",
     desc: "A wild Phoenixtto appears, capture the Phoenixtto, if you can...",
     url: '/tracks/eko2022/phoenixtto',
-    address: "0xEc679463f09059659C9F7A0ca282925496F74221",
+    address: "0xc092cbd1e25254C0aDF08b95DE7a633c1456aE83",
     image: "/phoenixtto.png",
     count: null,
   },
