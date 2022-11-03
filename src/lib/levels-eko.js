@@ -67,7 +67,7 @@ export default writable([
     name: "The Golden Ticket",
     desc: "Mint your ticket to the EKOparty, if you are patient and lucky enough.",
     url: '/tracks/eko2022/the-golden-ticket',
-    address: "0xF3ac598ba63C825Bb65d5bcB719A60911AFB13f5",
+    address: "0x7445e1e1E346de7b7aAe98aDe6dCaa6581CB2150",
     image: "/golden-ticket.gif",
     count: null,
   },
