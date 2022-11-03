@@ -12,6 +12,7 @@ onMount(async () => {
       ) {
         id
         count
+        attemps
       }
     }`).toPromise();
   $Challenges.forEach((l,i) => {

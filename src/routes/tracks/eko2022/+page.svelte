@@ -12,6 +12,7 @@ onMount(async () => {
       ) {
         id
         count
+        attemps
       }
     }`).toPromise();
     $ekoLevels.forEach((l,i) => {
@@ -22,6 +23,7 @@ onMount(async () => {
       let id = $ekoLevels.findIndex(l => l.address.toLocaleLowerCase() == c.id);
       if(id > -1) {
         $ekoLevels[id].count = Number(c.count);
+        $ekoLevels[id].attemps = Number(c.attemps);
       }
     });
 
@@ -67,15 +69,20 @@ $: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
           <!-- <a href={c.url} class="flex flex-col flex-grow"></a>-->
             <div class="w-full text-xl flex justify-between">
               <div>{c.emoji} {c.name}</div>
-              {#if c.count === 0}
-                <div class="badge badge-secondary badge-outline">Never hacked!!</div>
-              {:else if c.count === 1}
-                <div class="badge badge-outline badge-primary">Hacked only once!</div>
-              {:else if c.count > 1}
-                <div class="badge badge-outline">Hacked {c.count} times</div>
-              {/if}
+              <div>
+                {#if c.count === 0}
+                  <div class="badge badge-secondary badge-outline">Never hacked!!</div>
+                {:else if c.count === 1}
+                  <div class="badge badge-outline badge-primary text-xs">Hacked only once!</div>
+                {:else if c.count > 1}
+                  <div class="badge badge-outline text-xs">Hacked {c.count} times</div>
+                {/if}
+              </div>
             </div>
             <div class="w-full">{c.desc}</div>
+            {#if c.attemps > 1}
+              <small class="w-full">{c.attemps} attemps to hack this contract.</small>
+            {/if}
           </a>
         </li>
       {/each}
