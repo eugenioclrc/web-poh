@@ -3,9 +3,12 @@ import ekoLevels from "$lib/levels-eko";
 
 import getClient from "$lib/graphql";
 import { onMount } from "svelte";
+import * as ethers from "ethers"
+
+let leatherBoard = [];
 
 onMount(async () => {  
-  const { data: {challenges}} = await getClient().query(`
+  getClient().query(`
     query {
       challenges(
         where: {id_in: ${JSON.stringify($ekoLevels.map(e => e.address.toLocaleLowerCase()))}}
@@ -14,21 +17,49 @@ onMount(async () => {
         count
         attemps
       }
-    }`).toPromise();
-    $ekoLevels.forEach((l,i) => {
-      $ekoLevels[i].count = 0;
-      $ekoLevels[i].pos = i;
-    });
-    challenges.forEach(c => {
-      let id = $ekoLevels.findIndex(l => l.address.toLocaleLowerCase() == c.id);
-      if(id > -1) {
-        $ekoLevels[id].count = Number(c.count);
-        $ekoLevels[id].attemps = Number(c.attemps);
-      }
+    }`).toPromise().then(({ data: {challenges}}) => {
+      $ekoLevels.forEach((l,i) => {
+        $ekoLevels[i].count = 0;
+        $ekoLevels[i].pos = i;
+      });
+      challenges.forEach(c => {
+        let id = $ekoLevels.findIndex(l => l.address.toLocaleLowerCase() == c.id);
+        if(id > -1) {
+          $ekoLevels[id].count = Number(c.count);
+          $ekoLevels[id].attemps = Number(c.attemps);
+        }
+      });
     });
 
-  // svelte stuff reactity
-  // levels = [...Object.values(levels)];
+  const { data: {challengeSolveds}} = await getClient().query(`
+  query {
+    challengeSolveds(first: 500,  where: { challenge_in: ${JSON.stringify($ekoLevels.map(e => e.address.toLocaleLowerCase()))}}) {
+      id
+      challenge {
+        id
+        count
+      }
+      player {
+        id
+        totalHacks
+        username
+      }
+    }
+  }`).toPromise();
+  const players = {}
+  challengeSolveds.forEach(c => {
+    players[c.player.id] = players[c.player.id] || {
+      address: c.player.id,
+      username: c.player.username, 
+      totalHacks: c.player.totalHacks,
+      score: 0,
+    };
+
+    players[c.player.id].score += Math.floor(1e18 / c.challenge.count);
+  });
+
+  leatherBoard = (Object.values(players)).sort((a, b) => b.score - a.score);
+
 })
 
 $: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
@@ -37,7 +68,7 @@ $: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
 <svelte:head>
   <title>EKO Blockchain CTF - Enter the metaverse</title>
 </svelte:head>
-<div class="container w-full mx-auto md:py-14 pb-10">
+<div class="container w-full mx-auto md:py-14 pb-10 flex">
   <div class="card rounded-t-none md:rounded-lg max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
     <figure class="max-h-60 overflow-hidden"><img src="/eko2022-cover.jpg" alt="Ethernaut" /></figure>
     <div class="card-body">
@@ -87,5 +118,42 @@ $: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
         </li>
       {/each}
     </ul>
+  </div>
+  <div class="mt-3 card rounded-t-none md:rounded-lg max-w-lg lg:max-w-2xl mx-auto shadow-2xl bg-base-100">
+    <h1 class="text-center text-4xl mt-4">LeatherBoard</h1>
+    <img src="/trophy.png" class="mx-auto my-4" alt="trophy" />
+    <div class="overflow-x-auto">
+  <table class="table w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>address / name</th>
+        <th>Hacks</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each leatherBoard as p, i}
+        
+        <!-- row 1 -->
+        <tr>
+          <th>{i+1}</th>
+          <td>
+            <a href="/profile/{p.address}" class="link-hover link-info">
+              {#if p.username}
+                {p.username}
+              {:else}
+                {p.address.slice(0,6)}...{p.address.slice(-4)}
+              {/if}
+            </a>
+          </td>
+          <td>{p.totalHacks}</td>
+          <td class="text-right">{(ethers.utils.formatEther(String(p.score)) * 100).toFixed(2)}</td>
+        </tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
   </div>
 </div>
