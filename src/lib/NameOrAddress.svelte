@@ -2,7 +2,7 @@
 	import { getEnsName } from "$utils/ens";
 	import { onMount } from "svelte";
 
-  export let address;
+  export let address = '';
 
   let name;
   onMount(async () => {
@@ -13,9 +13,7 @@
 <span>
   {#if name}
     {name}
-  {:else if address} 
-    {address.slice(0,6)}... {address.slice(-4)}
   {:else} 
-    invalid
+    {address.slice(0,6)}... {address.slice(-4)}
   {/if}
 </span>
