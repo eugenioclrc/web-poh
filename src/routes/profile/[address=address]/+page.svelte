@@ -16,7 +16,7 @@
     let ensName;
 
     $: address = getAddress($page.params.address);
-    $: user = ensName || address ? `${address.slice(0,6)}.....${address.slice(-4)}` : '';
+    $: user = ensName || `${address.slice(0,6)}.....${address.slice(-4)}`;
     let player = {
         username: '',
         totalHacks: 0,
@@ -31,8 +31,7 @@
         const provider = new StaticJsonRpcProvider('https://rpc.ankr.com/eth');
         
         let _avatarURI;
-        let a;
-        [ensName, _avatarURI, a] = await Promise.all([
+        [ensName, _avatarURI] = await Promise.all([
             provider.lookupAddress(address),
             provider.getAvatar(address),
         ])
