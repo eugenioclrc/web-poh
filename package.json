@@ -34,7 +34,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@ensdomains/ens-avatar": "^0.1.7",
 		"@pinata/sdk": "^1.2.1",
 		"@tailwindcss/typography": "^0.5.7",
 		"@urql/svelte": "^3.0.1",
