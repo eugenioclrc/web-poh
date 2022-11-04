@@ -123,7 +123,7 @@
   </div>
   <div class="mt-3 xl:mt-0 w-full xl:max-w-md xl:ml-5 mx-auto ">
     <div class="w-full card rounded-none md:rounded-lg bg-base-100 shadow-2xl">
-      <h1 class="text-center text-4xl mt-4">LeatherBoard</h1>
+      <h1 class="text-center text-4xl mt-4">Leaderboard</h1>
       <img src="/trophy.png" class="mx-auto my-4" alt="trophy" />
       <div class="overflow-x-auto">
         <table class="table w-full">
