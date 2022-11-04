@@ -8,13 +8,15 @@
     import getContract from '$lib/contractChallengeFactory';
     import { StaticJsonRpcProvider } from '@ethersproject/providers';
     
-    import { AvatarResolver } from '@ensdomains/ens-avatar';
 	import { getAddress, formatBytes32String, parseBytes32String } from "ethers/lib/utils";
 	import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_TESTNET_RPC } from "$env/static/public";
 	import { Contract } from "ethers";
   
     let avatarURI = '/unknown.jpg';
+    let ensName;
+
     $: address = getAddress($page.params.address);
+    $: user = ensName || address ? `${address.slice(0,6)}.....${address.slice(-4)}` : '';
     let player = {
         username: '',
         totalHacks: 0,
@@ -27,9 +29,14 @@
     
     onMount(async () => {
         const provider = new StaticJsonRpcProvider('https://rpc.ankr.com/eth');
-
-        const avt = new AvatarResolver(provider);
-        const _avatarURI = await avt.getAvatar(address);
+        
+        let _avatarURI;
+        let a;
+        [ensName, _avatarURI, a] = await Promise.all([
+            provider.lookupAddress(address),
+            provider.getAvatar(address),
+        ])
+        
         if(_avatarURI) {
             avatarURI = _avatarURI;
         }  
@@ -127,7 +134,7 @@
                 {#if player.username}
                     <a href="https://twitter.com/{player.username}" rel="noreferrer" target="_blank" class="link link-hover link-primary font-semibold">@{player.username}</a>
                 {:else}
-                    <p class="font-semibold">{address.slice(0,6)}.....{address.slice(-4)}</p>
+                    <p class="font-semibold">{user}</p>
                 {/if}
                 <div class="text-sm leading-normal text-gray-400 flex justify-center items-center">
                     
