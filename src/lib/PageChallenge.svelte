@@ -8,6 +8,7 @@ import { Contract as MContract, Provider as MProvider, Provider, setMulticallAdd
 import {JsonRpcProvider} from "@ethersproject/providers";
 import confetti from 'canvas-confetti';
 import { BigNumber, Contract } from 'ethers';
+import HackedByTable from '$lib/HackedByTable.svelte';
 
 let challengeManager;
 
@@ -301,10 +302,10 @@ $: if($wallet && $chainId == Number(PUBLIC_TESTNET_CHAINID) && challenge.address
       {/if}
       <slot name="bottomlinks"></slot>
     </div>
-  
-      
+    <div class="md:px-40 pt-2">
+      <HackedByTable />
+    </div>
   </div>
-
   <slot name="code" />
 </div>
 
