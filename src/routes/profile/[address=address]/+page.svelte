@@ -11,12 +11,12 @@
 	import { getAddress, formatBytes32String, parseBytes32String } from "ethers/lib/utils";
 	import { PUBLIC_CHALLENGE_MANAGER, PUBLIC_TESTNET_RPC } from "$env/static/public";
 	import { Contract } from "ethers";
+	import NameOrAddress from "$lib/NameOrAddress.svelte";
+	import { getEnsAvatar } from "$utils/ens";
   
     let avatarURI = '/unknown.jpg';
-    let ensName;
 
     $: address = getAddress($page.params.address);
-    $: user = ensName || `${address.slice(0,6)}.....${address.slice(-4)}`;
     let player = {
         username: '',
         totalHacks: 0,
@@ -27,15 +27,8 @@
     let modalTw = false;
     let updating = false;
     
-    onMount(async () => {
-        const provider = new StaticJsonRpcProvider('https://rpc.ankr.com/eth');
-        
-        let _avatarURI;
-        [ensName, _avatarURI] = await Promise.all([
-            provider.lookupAddress(address),
-            provider.getAvatar(address),
-        ])
-        
+    onMount(async () => {        
+        let _avatarURI = await getEnsAvatar(address);
         if(_avatarURI) {
             avatarURI = _avatarURI;
         }  
@@ -133,7 +126,9 @@
                 {#if player.username}
                     <a href="https://twitter.com/{player.username}" rel="noreferrer" target="_blank" class="link link-hover link-primary font-semibold">@{player.username}</a>
                 {:else}
-                    <p class="font-semibold">{user}</p>
+                    <p class="font-semibold">
+                        <NameOrAddress address={address} />
+                    </p>
                 {/if}
                 <div class="text-sm leading-normal text-gray-400 flex justify-center items-center">
                     
