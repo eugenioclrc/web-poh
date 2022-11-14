@@ -6,41 +6,47 @@
   import * as ethers from "ethers"
   import NameOrAddress from "./NameOrAddress.svelte";
 
-  let players = {};
+  let players = [];
   async function getChallengePlayers() {
     const { address } = $ekoLevels.find(({ url }) => $page.routeId === url);
-    let p = [];
-    const { data: { challengeSolveds } } = await getClient().query(`
+    const ekoLevelsIds = $ekoLevels.map(({ address }) => address.toLocaleLowerCase());
+    const { data: { players: p } } = await getClient().query(`
       query {
-        challengeSolveds(where: {challenge_in: ${JSON.stringify([address.toLocaleLowerCase()])} }) {
+        players {
           id
-          player {
-            id
-            totalHacks
-            username
-            challenges {
-              challenge {
-                  id
-                  count
-              }
+          username
+          totalHacks
+          challenges(where: { challenge_in: ${JSON.stringify(ekoLevelsIds)}}) {
+            challenge {
+              id
+              count
             }
           }
         }
       }`
     ).toPromise();
 
-    challengeSolveds.forEach(({ player }) => {
-      players[player.id] = {
-        address: player.id,
-        username: player.username, 
-        totalHacks: player.totalHacks,
-        score: player.challenges.reduce((score, { challenge }) => {
-          return score + Math.floor(1e18 / parseInt(challenge.count, 10));
-        }, 0),
-      };
+    p.forEach((player) => {
+      const { id, username, totalHacks, challenges } = player;
+      let included = false;
+      const score = challenges.reduce((score, { challenge }) => {
+        if (challenge.id.toLocaleLowerCase() == address.toLocaleLowerCase()) {
+          included = true;
+        }
+        return score + Math.floor(1e18 / challenge.count);
+      }, 0);
+      
+      if (included) {
+        players.push({
+          address: id,
+          username, 
+          totalHacks,
+          score,
+        });
+      }
     });
 
-    players = Object.values(players).sort((p1, p2) => p2.score - p1.score).slice(0, 3);
+    players = [...players.sort((p1, p2) => p2.score - p1.score).slice(0, 3)];
   }
 
   onMount(async () => {
