@@ -23,21 +23,21 @@
         <div class="card-body">
           <h2 class="card-title">Description</h2>
           <p>
-            This is a simple experiment of the <b>Proof of Hack Protocol</b>. Its a mix between classical blockchain challenges, and new ones, its permissionless, this page will curated some of them.<br />
-						After you break each challenge you can claim a souldbond NFT on polygon.
+            This is a simple experiment of the <b>Proof of Hack Protocol</b>. It's a mix between classical blockchain challenges and new ones, in a permissionless fashion.<br />
+						After you break each challenge you can claim a soulbond NFT on Polygon.
           </p>
         </div>
       </div>
       <div class="card w-96 bg-base-100 shadow-xl m-2">
         <div class="card-body">
-          <h2 class="card-title">How do i play? 🕹️</h2>
+          <h2 class="card-title">How do I play? 🕹️</h2>
           <p>
-            First make sure that you have installed the Metamask extension.<br />
-            Then make sure you have some Görli ETH, which you will use to send transactions. If not you can get 
+            First, make sure that you have installed the Metamask extension.<br />
+            Then make sure you have some Görli ETH, which you will use to send transactions. You can get 
             some from <a href="https://goerli-faucet.pk910.de/" target="_blank" rel="noreferrer" class="link-primary hover">this faucet</a> or 
-              <a href="https://faucetlink.to/goerli" target="_blank" rel="noreferrer" class="link-primary hover">check this faucet list</a>
+              <a href="https://faucetlink.to/goerli" target="_blank" rel="noreferrer" class="link-primary hover">check this faucet list</a>.
             <br />
-            Finally click play to connect your wallet.
+            Finally, click play to connect your wallet.
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <div class="card-body">
           <h2 class="card-title">About this</h2>
           <p>
-						The Proof Of Hack Protocol its a game where you can learn by doing, earn NFTs trophies, validate your skills and brag with your anons frens.
+						The Proof Of Hack Protocol is a game where you can learn by doing, earn NFTs trophies, validate your skills, and brag with your anon frens.
           </p>
         </div>
       </div>
@@ -84,7 +84,7 @@
 					2) Break the challenge.
 				</h2>
 				<h2 class="text-white font-semibold text-2xl mt-2">
-					2) Claim your nft.
+					2) Claim your NFT.
 				</h2>
 			
 				<p class="mt-4 text-xl text-slate-200 flex justify-center">
