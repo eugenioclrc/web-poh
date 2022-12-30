@@ -28,6 +28,7 @@
           if(id > -1) {
             $ekoLevels[id].count = Number(c.count);
             $ekoLevels[id].attemps = Number(c.attemps);
+            $ekoLevels[id].sortNumber = Number(c.count) / (Number(c.attemps) + 1);
           }
         });
       });
@@ -63,7 +64,7 @@
 
   })
 
-  $: levels = [...$ekoLevels].sort((a, b) => (a.count|| 0) - (b.count|| 0));
+  $: levels = [...$ekoLevels].sort((a, b) => (a.sortNumber|| 0) - (b.sortNumber|| 0));
 </script>
 
 <svelte:head>
