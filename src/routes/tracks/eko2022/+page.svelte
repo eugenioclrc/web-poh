@@ -72,8 +72,8 @@
 
 <div class="container w-full mx-auto md:py-14 md:pb-10 block xl:flex">
   <div class="card rounded-none md:rounded-lg w-full md:w-auto lg:max-w-3xl mx-auto shadow-2xl bg-base-100">
-    <figure class="max-h-60 overflow-hidden"><img src="/eko2022-cover.jpg" alt="Ethernaut" /></figure>
-    <div class="card-body">
+    <figure class="max-h-60 overflow-hidden"><img src="/eko2022-cover.jpg" alt="EKO Ctf blockchain" /></figure>
+    <div class="card-body max-h-60">
       <h2 class="card-title text-4xl flex flex-wrap">
         EKO2022 Enter the metaverse
         <div class="badge badge-secondary badge-outline text-xs">NEW</div>
